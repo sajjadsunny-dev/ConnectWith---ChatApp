@@ -1,10 +1,11 @@
 import './App.css'
+import Register from './Pages/Register/Register'
 
 function App() {
 
   return (
     <>
-      <h1 className='bg-teal-500'>Sajjad hossain sunny</h1>
+      <Register></Register>
     </>
   )
 }
