@@ -1,12 +1,13 @@
 .input:focus~.label,
 .input:not(:placeholder-shown).input:not(:focus)~.label {
     top: 0;
-    transform: translate(30px, -50%);
+    transform: translate(25px, -50%);
     opacity: 1;
     padding: 0 18px;
     font-size: 16px;
     color: #5F35F5;
     font-weight: 700;
+    background: #fff;
 }
 
 .input:not(:placeholder-shown).input:not(:focus) {

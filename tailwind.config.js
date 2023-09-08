@@ -10,7 +10,7 @@ export default {
         'themeColor': '#5F35F5',
         'headColor': '#11175D',
         'labelColor': 'rgba(17, 23, 93, .7)',
-        'errorBg': 'rgba(0, 0, 0, 0.4)'
+        'errorBg': 'rgba(0, 0, 0, 0.4)',
       },
       maxWidth: {
         'container': '1320px',
