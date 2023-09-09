@@ -51,9 +51,9 @@ const Login = () => {
             <section className='h-screen sm:h-auto md:h-screen flex'>
                 <div className="w-full sm:w-[60%] md:w-[55%] h-full flex justify-center items-center sm:py-8 md:p-0">
                     <div className="xl:ml-20 px-3 md:px-5 lg:px-0">
-                        <h2 className='font-nunito text-center lg:text-start md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Login to your account!</h2>
+                        <h2 className='font-nunito md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Login to your account!</h2>
                         <form className='w-full lg:w-[398px]'>
-                            <button className='font-openSans text-sm font-semibold tracking-wide text-[#03014C] pt-[23px] pb-[22px] pl-[30px] pr-[42px] border-[1px] border-solid border-[#03014C] flex items-center rounded-[9px] mt-[30px]' type="button"><span className='text-2xl mr-2'><FcGoogle /></span>Login with Google</button>
+                            <button className='font-openSans text-sm font-semibold tracking-wide text-[#03014C] py-3.5 px-4 md:pt-[23px] md:pb-[22px] md:pl-[30px] md:pr-[42px] border-[1px] border-solid border-[#03014C] flex items-center rounded-[9px] mt-[30px]' type="button"><span className='text-2xl mr-2'><FcGoogle /></span>Login with Google</button>
 
                             <div className="relative">
                                 {
