@@ -29,7 +29,8 @@ export default {
         'monialShadow': '0px 0px 20px 5px rgba(0, 19, 119, 0.05)',
       },
       backgroundImage: {
-        'registerBanner': "url('images/register.jpg')"
+        'registerBanner': "url('images/register.jpg')",
+        'loginBanner': "url('images/login.jpg')",
       }
     },
   },
