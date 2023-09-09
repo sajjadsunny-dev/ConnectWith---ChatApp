@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './Register.css'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 
 const Register = () => {
