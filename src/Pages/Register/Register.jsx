@@ -7,6 +7,12 @@ const Register = () => {
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
 
+    const isValidEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._]+@(gmail\.com|yahoo\.com|hotmail\.com)$/;
+        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     const handleEmail = (e) => {
         setEmail(e.target.value);
         setEmailError('')
@@ -26,11 +32,18 @@ const Register = () => {
 
     const handleSubmit = () => {
         if (!email) {
+            setEmailError('Enter your E-mail to signup');
+        } else if (isValidEmail(email)) {
+            console.log('valid');
+        } else {
+            console.log('invalid');
             setEmailError('Please Enter your valid E-mail');
         }
+
         if (!fullName) {
             setFullNameError('Please Enter your Full Name');
         }
+
         if (!password) {
             setPasswordError('Please Enter your Password');
         }
@@ -54,12 +67,12 @@ const Register = () => {
                                 {
                                     emailError &&
                                     <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="emailError error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid">{emailError}</h5>
+                                        <h5 className="emailError error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{emailError}</h5>
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-[55px]'>
-                                    <input onChange={handleEmail} className={`input py-3 md:py-6 pl-7 md:pl-[50px] pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='Email' type="email" placeholder='' />
-                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] cursor-text duration-300 ${emailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="Email">Email Address</label>
+                                    <input onChange={handleEmail} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='Email' type="email" placeholder='' />
+                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] cursor-text duration-300 select-none ${emailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="Email">Email Address</label>
                                 </div>
                             </div>
 
@@ -67,12 +80,12 @@ const Register = () => {
                                 {
                                     fullNameError &&
                                     <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid">{fullNameError}</h5>
+                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{fullNameError}</h5>
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">
-                                    <input onChange={handleFullName} className={`input py-3 md:py-6 pl-7 md:pl-[50px] pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor capitalize focus:opacity-70 ${fullNameError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='name' type="text" placeholder='' />
-                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] duration-300 cursor-text ${fullNameError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="name">Full Name</label>
+                                    <input onChange={handleFullName} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor capitalize focus:opacity-70 ${fullNameError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='name' type="text" placeholder='' />
+                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] duration-300 cursor-text select-none ${fullNameError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="name">Full Name</label>
                                 </div>
                             </div>
 
@@ -80,12 +93,12 @@ const Register = () => {
                                 {
                                     passwordError &&
                                     <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid">{passwordError}</h5>
+                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{passwordError}</h5>
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">
-                                    <input onChange={handlePassword} className={`input py-3 md:py-6 pl-7 md:pl-[50px] pr-14 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='password' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
-                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] duration-300 cursor-text ${passwordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="password">Password</label>
+                                    <input onChange={handlePassword} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-14 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='password' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
+                                    <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] duration-300 cursor-text select-none ${passwordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="password">Password</label>
 
                                     <div onClick={togglePasswordVisiblity} className={`text-3xl p-2 absolute right-4 top-1/2 translate-y-[-50%] opacity-30 cursor-pointer duration-200 ${passwordVisible ? 'text-themeColor opacity-90' : 'text-black'}`}>{passwordVisible ? <AiFillEyeInvisible /> : <AiFillEye />}</div>
                                 </div>
