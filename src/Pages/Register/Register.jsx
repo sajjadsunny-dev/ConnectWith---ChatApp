@@ -43,6 +43,16 @@ const Register = () => {
 
         if (!password) {
             setPasswordError('Please Enter your Password');
+        } else if (!/^(?=.*[a-z])/.test(password)) {
+            setPasswordError('Password must contain at least 1 lowercase character');
+        } else if (!/^(?=.*[A-Z])/.test(password)) {
+            setPasswordError('Password must contain at least 1 uppercase character');
+        } else if (!/^(?=.*[0-9])/.test(password)) {
+            setPasswordError('Password must contain at least 1 numeric character');
+        } else if (!/^(?=.*[!@#$%^&*])/.test(password)) {
+            setPasswordError('Password must contain at least 1 special character');
+        } else if (!/^(?=.{8,})/.test(password)) {
+            setPasswordError('Password must be eight characters or longer');
         }
     }
 
@@ -55,7 +65,7 @@ const Register = () => {
     return (
         <>
             <section className='h-screen sm:h-auto md:h-screen flex'>
-                <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex justify-center items-center sm:py-8 md:p-0">
+                <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex justify-center md:justify-end items-center sm:py-8 md:p-0">
                     <div className="xl:mr-[130px] px-3 md:px-5 lg:px-0">
                         <h2 className='font-nunito text-center lg:text-start md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Get started with easily register</h2>
                         <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Free register and you can enjoy it</p>
@@ -90,7 +100,7 @@ const Register = () => {
                                 {
                                     passwordError &&
                                     <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{passwordError}</h5>
+                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-[15px] font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{passwordError}</h5>
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">
