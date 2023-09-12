@@ -1,3 +1,4 @@
+import './Register.css'
 import React, { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 
@@ -8,8 +9,7 @@ const Register = () => {
     const [password, setPassword] = useState('')
 
     const isValidEmail = (email) => {
-        const emailRegex = /^[a-zA-Z0-9._]+@(gmail\.com|yahoo\.com|hotmail\.com)$/;
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
         return emailRegex.test(email);
     }
 
@@ -33,10 +33,7 @@ const Register = () => {
     const handleSubmit = () => {
         if (!email) {
             setEmailError('Enter your E-mail to signup');
-        } else if (isValidEmail(email)) {
-            console.log('valid');
-        } else {
-            console.log('invalid');
+        } else if (!isValidEmail(email)) {
             setEmailError('Please Enter your valid E-mail');
         }
 
@@ -58,7 +55,7 @@ const Register = () => {
     return (
         <>
             <section className='h-screen sm:h-auto md:h-screen flex'>
-                <div className="w-full sm:w-[60%] md:w-[55%] h-full flex justify-center xl:justify-end items-center sm:py-8 md:p-0">
+                <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex justify-center items-center sm:py-8 md:p-0">
                     <div className="xl:mr-[130px] px-3 md:px-5 lg:px-0">
                         <h2 className='font-nunito text-center lg:text-start md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Get started with easily register</h2>
                         <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Free register and you can enjoy it</p>
@@ -111,7 +108,7 @@ const Register = () => {
                         </form>
                     </div>
                 </div >
-                <div className="w-full sm:w-[40%] md:w-[45%] bg-registerBanner bg-no-repeat bg-cover bg-center hidden sm:block"></div>
+                <div className="w-full sm:w-[40%] tablet:w-[50%] md:w-[45%] h-auto tablet:h-screen md:h-auto bg-registerBanner bg-no-repeat bg-cover bg-center hidden sm:block"></div>
             </section >
         </>
     )

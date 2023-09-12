@@ -31,7 +31,10 @@ export default {
       backgroundImage: {
         'registerBanner': "url('images/register.jpg')",
         'loginBanner': "url('images/login.jpg')",
-      }
+      }, screens: {
+        'tablet': '740px',
+        // => @media (min-width: 640px) { ... }
+      },
     },
   },
   plugins: [],
