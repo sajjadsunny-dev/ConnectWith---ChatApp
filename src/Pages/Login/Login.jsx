@@ -5,45 +5,44 @@ import { FcGoogle } from 'react-icons/Fc';
 
 const Login = () => {
     // input value pass
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [loginEmail, setLoginEmail] = useState('')
+    const [loginPassword, setLoginPassword] = useState('')
 
     const isValidEmail = (email) => {
-        const emailRegex = /^[a-zA-Z0-9._]+@(gmail\.com|yahoo\.com|hotmail\.com)$/;
-        return emailRegex.test(email);
+        const loginEmailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
+        return loginEmailRegex.test(email);
     }
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-        setEmailError('')
+    const handleLoginEmail = (e) => {
+        setLoginEmail(e.target.value);
+        setLoginEmailError('')
     }
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        setPasswordError('')
+    const handleLoginPassword = (e) => {
+        setLoginPassword(e.target.value);
+        setLoginPasswordError('')
     }
     // input error
-    const [emailError, setEmailError] = useState('')
-    const [passwordError, setPasswordError] = useState('')
+    const [loginEmailError, setLoginEmailError] = useState('')
+    const [loginPasswordError, setLoginPasswordError] = useState('')
 
     const handleSubmit = () => {
-        if (!email) {
-            setEmailError('Enter your E-mail to signup');
-        } else if (isValidEmail(email)) {
-            console.log('valid');
-        } else {
+        if (!loginEmail) {
+            console.log('enter email');
+            setLoginEmailError('Enter your E-mail to signup');
+        } else if (!isValidEmail(loginEmail)) {
             console.log('invalid');
-            setEmailError('Please Enter your valid E-mail');
+            setLoginEmailError('Please Enter your valid E-mail');
         }
 
-        if (!password) {
-            setPasswordError('Please Enter your Password');
+        if (!loginPassword) {
+            setLoginPasswordError('Please Enter your Password');
         }
     }
 
     // password visible on click
-    const [passwordVisible, setPasswordVisible] = useState(false);
-    const togglePasswordVisiblity = () => {
-        setPasswordVisible(!passwordVisible);
+    const [loginPasswordVisible, setLoginPasswordVisible] = useState(false);
+    const toggleLoginPasswordVisiblity = () => {
+        setLoginPasswordVisible(!loginPasswordVisible);
     }
 
     return (
@@ -57,29 +56,29 @@ const Login = () => {
 
                             <div className="relative">
                                 {
-                                    emailError &&
-                                    <div className=" absolute bottom-full left-0 bottom-0 translate-y-[40px]">
-                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{emailError}</h5>
+                                    loginEmailError &&
+                                    <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
+                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{loginEmailError}</h5>
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-10'>
-                                    <input onChange={handleEmail} className={`LoginInput py-3 md:py-6 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginEmail' type="email" placeholder='' />
-                                    <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${emailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginEmail">Email Address</label>
+                                    <input onChange={handleLoginEmail} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${loginEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginEmail' type="email" placeholder='' />
+                                    <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${loginEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginEmail">Email Address</label>
                                 </div>
                             </div>
 
                             <div className="relative">
                                 {
-                                    passwordError &&
-                                    <div className=" absolute bottom-full left-0 bottom-0 translate-y-[40px]">
-                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{passwordError}</h5>
+                                    loginPasswordError &&
+                                    <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
+                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{loginPasswordError}</h5>
                                     </div>
                                 }
-                                <div className="relative mt-12 md:mt-10">
-                                    <input onChange={handlePassword} className={`LoginInput py-3 md:py-6 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginPassword' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
-                                    <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-y-[-50%] duration-300 cursor-text select-none ${passwordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginPassword">Password</label>
+                                <div className="relative mt-12 md:mt-16">
+                                    <input onChange={handleLoginPassword} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${loginPasswordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginPassword' type={loginPasswordVisible ? 'text' : 'password'} value={loginPassword} placeholder='' />
+                                    <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-y-[-50%] duration-300 cursor-text select-none ${loginPasswordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginPassword">Password</label>
 
-                                    <div onClick={togglePasswordVisiblity} className={`text-3xl p-2 absolute right-4 top-1/2 translate-y-[-50%] opacity-30 cursor-pointer duration-200 ${passwordVisible ? 'text-themeColor opacity-90' : 'text-black'}`}>{passwordVisible ? <AiFillEyeInvisible /> : <AiFillEye />}</div>
+                                    <div onClick={toggleLoginPasswordVisiblity} className={`text-3xl p-2 absolute right-4 top-1/2 translate-y-[-50%] opacity-30 cursor-pointer duration-200 ${loginPasswordVisible ? 'text-themeColor opacity-90' : 'text-black'}`}>{loginPasswordVisible ? <AiFillEyeInvisible /> : <AiFillEye />}</div>
                                 </div>
                             </div>
 
