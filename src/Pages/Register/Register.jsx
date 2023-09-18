@@ -1,8 +1,12 @@
 import './Register.css'
 import React, { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+    const auth = getAuth();
     // input value pass
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
@@ -43,16 +47,34 @@ const Register = () => {
 
         if (!password) {
             setPasswordError('Please Enter your Password');
-        } else if (!/^(?=.*[a-z])/.test(password)) {
-            setPasswordError('Password must contain at least 1 lowercase character');
-        } else if (!/^(?=.*[A-Z])/.test(password)) {
-            setPasswordError('Password must contain at least 1 uppercase character');
-        } else if (!/^(?=.*[0-9])/.test(password)) {
-            setPasswordError('Password must contain at least 1 numeric character');
-        } else if (!/^(?=.*[!@#$%^&*])/.test(password)) {
-            setPasswordError('Password must contain at least 1 special character');
-        } else if (!/^(?=.{8,})/.test(password)) {
-            setPasswordError('Password must be eight characters or longer');
+        }
+        //  else if (!/^(?=.*[a-z])/.test(password)) {
+        //     setPasswordError('Password must contain at least 1 lowercase character');
+        // } else if (!/^(?=.*[A-Z])/.test(password)) {
+        //     setPasswordError('Password must contain at least 1 uppercase character');
+        // } else if (!/^(?=.*[0-9])/.test(password)) {
+        //     setPasswordError('Password must contain at least 1 numeric character');
+        // } else if (!/^(?=.*[!@#$%^&*])/.test(password)) {
+        //     setPasswordError('Password must contain at least 1 special character');
+        // } else if (!/^(?=.{8,})/.test(password)) {
+        //     setPasswordError('Password must be eight characters or longer');
+        // }
+
+        if (email && fullName && password && isValidEmail(email)) {
+            createUserWithEmailAndPassword(auth, email, password).then(() => {
+                // console.log('registrtation completed');
+                // toast.success('registrtation completed', { containerId: 'A' });
+                sendEmailVerification(auth.currentUser).then(() => {
+                    setEmail('')
+                    setFullName('')
+                    setPassword('')
+                    toast.warn('Please verify your email to Continue', { containerId: 'B' });
+                })
+            }).catch((error) => {
+                if (error.code.includes("auth/email-already-in-use")) {
+                    setEmailError('This E-maill already in use')
+                }
+            })
         }
     }
 
@@ -67,6 +89,22 @@ const Register = () => {
             <section className='h-screen sm:h-auto md:h-screen flex'>
                 <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex justify-center md:justify-end items-center sm:py-8 md:p-0">
                     <div className="xl:mr-[130px] px-3 md:px-5 lg:px-0">
+
+                        <ToastContainer
+                            enableMultiContainer
+                            containerId={'B'}
+                            position="top-center"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="dark"
+                        />
+
                         <h2 className='font-nunito text-center lg:text-start md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Get started with easily register</h2>
                         <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Free register and you can enjoy it</p>
                         <form className='w-full lg:w-[398px]'>
@@ -78,7 +116,7 @@ const Register = () => {
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-[55px]'>
-                                    <input onChange={handleEmail} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='Email' type="email" placeholder='' />
+                                    <input onChange={handleEmail} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} value={email} id='Email' type="email" placeholder='' />
                                     <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] cursor-text duration-300 select-none ${emailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="Email">Email Address</label>
                                 </div>
                             </div>
@@ -91,7 +129,7 @@ const Register = () => {
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">
-                                    <input onChange={handleFullName} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor capitalize focus:opacity-70 ${fullNameError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='name' type="text" placeholder='' />
+                                    <input onChange={handleFullName} className={`input py-3 md:py-6 pl-7 md:pl-12 pr-2 w-full border-2 rounded-[8.6px] focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor capitalize focus:opacity-70 ${fullNameError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} value={fullName} id='name' type="text" placeholder='' />
                                     <label className={`label font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-x-[28px] md:translate-x-[52px] translate-y-[-50%] duration-300 cursor-text select-none ${fullNameError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="name">Full Name</label>
                                 </div>
                             </div>
