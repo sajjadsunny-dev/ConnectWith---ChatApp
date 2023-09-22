@@ -1,9 +1,10 @@
 import './Register.css'
-import React, { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const auth = getAuth();
@@ -11,7 +12,6 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
-
     const isValidEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
         return emailRegex.test(email);
@@ -151,7 +151,7 @@ const Register = () => {
 
                             <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor border-2 border-solid border-themeColor rounded-[86px] hover:bg-white hover:text-themeColor duration-300 mt-[42px] mb-[25px]' type="button">Sign up</button>
                             <div>
-                                <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ? <a className='font-bold text-[#EA6C00]' href="#">Sign In</a></p>
+                                <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ? <Link to="/sign-in" className='font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
                             </div>
                         </form>
                     </div>

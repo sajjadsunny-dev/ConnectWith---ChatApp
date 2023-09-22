@@ -9,6 +9,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ResetPassword from './Pages/ResetPassword/ResetPassword'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <Login></Login>
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />
   },
 ]);
 

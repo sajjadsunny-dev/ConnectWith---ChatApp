@@ -1,9 +1,13 @@
 import './Login.css'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 import { FcGoogle } from 'react-icons/Fc';
+import { Link, Navigate } from 'react-router-dom';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
     // input value pass
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
@@ -45,6 +49,18 @@ const Login = () => {
         setLoginPasswordVisible(!loginPasswordVisible);
     }
 
+    const handleGoogleSignin = () => {
+        signInWithPopup(auth, provider)
+            .then(() => {
+                setTimeout(() => {
+                    Navigate('/')
+                }, 3000);
+            }).catch((error) => {
+                const errorCode = error.code;
+                console.log(errorCode);
+            });
+    }
+
     return (
         <>
             <section className='h-screen sm:h-auto md:h-screen flex'>
@@ -52,7 +68,7 @@ const Login = () => {
                     <div className="xl:ml-20 px-3 md:px-5 lg:px-0">
                         <h2 className='font-openSans md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Login to your account!</h2>
                         <form className='w-full lg:w-[398px]'>
-                            <button className='font-openSans text-sm font-semibold tracking-wide text-[#03014C] py-3.5 px-4 md:pt-[23px] md:pb-[22px] md:pl-[30px] md:pr-[42px] border-[1px] border-solid border-[#03014C] flex items-center rounded-[9px] mt-[30px]' type="button"><span className='text-2xl mr-2'><FcGoogle /></span>Login with Google</button>
+                            <button onClick={handleGoogleSignin} className='font-openSans text-sm font-semibold tracking-wide text-[#03014C] py-3.5 px-4 md:pt-[23px] md:pb-[22px] md:pl-[30px] md:pr-[42px] border-[1px] border-solid border-[#03014C] flex items-center rounded-[9px] mt-[30px]' type="button"><span className='text-2xl mr-2'><FcGoogle /></span>Login with Google</button>
 
                             <div className="relative">
                                 {
@@ -84,7 +100,8 @@ const Login = () => {
 
                             <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor border-2 border-solid border-themeColor rounded-[9px] hover:bg-white hover:text-themeColor duration-300 mt-14 mb-[25px]' type="button">Login to Continue</button>
                             <div>
-                                <p className='font-openSans text-sm font-regular text-[#03014C]'>Don’t have an account ? <a className='font-bold text-[#EA6C00]' href="#">Sign up</a></p>
+                                <p className='font-openSans text-sm font-regular text-[#03014C]'>Don’t have an account ? <Link to="/sign-up" className='font-bold text-[#EA6C00]' href="#">Sign up</Link></p>
+                                <p className='font-openSans text-sm font-regular text-[#03014C] mt-2'>Have you <Link to="/reset-password" className='font-bold text-[#EA6C00]'>forgotten password ?</Link></p>
                             </div>
                         </form>
                     </div>
