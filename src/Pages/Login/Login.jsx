@@ -31,10 +31,8 @@ const Login = () => {
 
     const handleSubmit = () => {
         if (!loginEmail) {
-            console.log('enter email');
             setLoginEmailError('Enter your E-mail to signup');
         } else if (!isValidEmail(loginEmail)) {
-            console.log('invalid');
             setLoginEmailError('Please Enter your valid E-mail');
         }
 
@@ -98,9 +96,9 @@ const Login = () => {
                                 </div>
                             </div>
 
-                            <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor border-2 border-solid border-themeColor rounded-[9px] hover:bg-white hover:text-themeColor duration-300 mt-14 mb-[25px]' type="button">Login to Continue</button>
+                            <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor rounded-[9px] hover:bg-[#FF9A00] duration-300 mt-14 mb-[25px]' type="button">Login to Continue</button>
                             <div>
-                                <p className='font-openSans text-sm font-regular text-[#03014C]'>Don’t have an account ? <Link to="/sign-up" className='font-bold text-[#EA6C00]' href="#">Sign up</Link></p>
+                                <p className='font-openSans text-sm font-regular text-[#03014C]'>Don’t have an account ?<Link to="/sign-up" className='ml-1.5 font-bold text-[#EA6C00]' href="#">Sign up</Link></p>
                                 <p className='font-openSans text-sm font-regular text-[#03014C] mt-2'>Have you <Link to="/reset-password" className='font-bold text-[#EA6C00]'>forgotten password ?</Link></p>
                             </div>
                         </form>

@@ -1,7 +1,25 @@
+import { useState } from 'react'
 import './ResetPassword.css'
 import { Link } from "react-router-dom"
 
 const ResetPassword = () => {
+   const [resetEmail, setResetEmail] = useState('')
+   const [resetEmailError, setResetEmailError] = useState('')
+   const isValidEmail = (email) => {
+      const emailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
+      return emailRegex.test(email);
+   }
+   const handleResetLoginEmail = (e) => {
+      setResetEmail(e.target.value);
+      setResetEmailError('')
+   }
+   const handelSearchEmail = () => {
+      if (!resetEmail) {
+         setResetEmailError('You have to Enter your E-mail Address')
+      } else if (!isValidEmail(resetEmail)) {
+         setResetEmailError('Enter Valid E-mail Address')
+      }
+   }
    return (
       <>
          <section className='h-screen sm:h-auto md:h-screen flex'>
@@ -15,18 +33,21 @@ const ResetPassword = () => {
                   <form className='w-full lg:w-[398px]'>
 
                      <div className="relative">
-                        <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
-                           <h5 className="resetEmailError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">Enter Valid Email Address</h5>
-                        </div>
+                        {
+                           resetEmailError &&
+                           <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
+                              <h5 className="resetEmailError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{resetEmailError}</h5>
+                           </div>
+                        }
                         <div className='relative mt-12 md:mt-10'>
-                           <input className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 `} id='loginEmail' type="email" placeholder='' />
-                           <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none`} htmlFor="loginEmail">Email Address</label>
+                           <input onChange={handleResetLoginEmail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginEmail' type="email" placeholder='' />
+                           <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${resetEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginEmail">Email Address</label>
                         </div>
                      </div>
 
-                     <button className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor border-2 border-solid border-themeColor rounded-[9px] hover:bg-white hover:text-themeColor duration-300 mt-14 mb-[25px]' type="button">Search Your Account</button>
+                     <button onClick={handelSearchEmail} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor rounded-[9px] hover:bg-[#FF9A00] duration-300 mt-14 mb-[25px]' type="button">Search Your Account</button>
                      <div>
-                        <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ? <Link to="/sign-in" className='font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
+                        <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ?<Link to="/sign-in" className='ml-1.5 font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
                      </div>
                   </form>
                </div>

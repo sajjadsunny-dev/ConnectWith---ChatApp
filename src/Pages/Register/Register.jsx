@@ -149,9 +149,9 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor border-2 border-solid border-themeColor rounded-[86px] hover:bg-white hover:text-themeColor duration-300 mt-[42px] mb-[25px]' type="button">Sign up</button>
+                            <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor rounded-[86px] hover:bg-[#FF9A00] duration-300 mt-[42px] mb-[25px]' type="button">Sign up</button>
                             <div>
-                                <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ? <Link to="/sign-in" className='font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
+                                <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ?<Link to="/sign-in" className='ml-1.5 font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
                             </div>
                         </form>
                     </div>

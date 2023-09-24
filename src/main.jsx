@@ -10,8 +10,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ResetPassword from './Pages/ResetPassword/ResetPassword'
+import Home from './Pages/Home/Home'
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home></Home>
+  },
   {
     path: "/sign-up",
     element: <Register></Register>
