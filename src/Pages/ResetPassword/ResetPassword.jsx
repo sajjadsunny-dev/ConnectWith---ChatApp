@@ -23,13 +23,16 @@ const ResetPassword = () => {
    return (
       <>
          <section className='h-screen sm:h-auto md:h-screen flex'>
-            <div className="w-full sm:w-[40%] tablet:w-[50%] md:w-[45%] h-auto tablet:h-screen md:h-auto flex justify-end items-center">
-               <img className="w-9/12" src="images/resetPassword.png" alt="resetPassword.png" />
+            <div className="w-full sm:w-[40%] tablet:w-[50%] md:w-[45%] h-auto tablet:h-screen md:h-auto hidden sm:flex justify-center xl:justify-end items-start md:items-center">
+               <img className="w-[40%] md:w-10/12 fixed top-1/2 translate-y-[-50%] md:translate-y-0 md:static" src="images/resetPassword.png" alt="resetPassword.png" />
             </div>
             <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex items-center sm:py-8 md:p-0">
-               <div className="xl:ml-14 px-3 md:px-5 lg:px-0">
+               <div className="xl:ml-16 px-3 md:px-5 lg:px-0">
+                  <div className="">
+                     <img className='sm:hidden w-8/12 mx-auto mb-7' src="images/smdeviceReset.png" alt="" />
+                  </div>
                   <h2 className='font-openSans md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Did you Forgot your Password?</h2>
-                  <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Please Enter your E-mail to Search your Account</p>
+                  <p className='font-nunito text-base md:text-xl lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Please Enter your E-mail to Search your Account</p>
                   <form className='w-full lg:w-[398px]'>
 
                      <div className="relative">
@@ -39,7 +42,7 @@ const ResetPassword = () => {
                               <h5 className="resetEmailError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{resetEmailError}</h5>
                            </div>
                         }
-                        <div className='relative mt-12 md:mt-10'>
+                        <div className='relative mt-6 md:mt-10'>
                            <input onChange={handleResetLoginEmail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginEmail' type="email" placeholder='' />
                            <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${resetEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginEmail">Email Address</label>
                         </div>
