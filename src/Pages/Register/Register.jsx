@@ -4,10 +4,11 @@ import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const auth = getAuth();
+    const navigate = useNavigate()
     // input value pass
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
@@ -69,6 +70,10 @@ const Register = () => {
                     setFullName('')
                     setPassword('')
                     toast.warn('Please verify your email to Continue', { containerId: 'B' });
+                    setTimeout((redirect) => {
+                        navigate('/')
+                        return redirect;
+                    }, 4500);
                 })
             }).catch((error) => {
                 if (error.code.includes("auth/email-already-in-use")) {

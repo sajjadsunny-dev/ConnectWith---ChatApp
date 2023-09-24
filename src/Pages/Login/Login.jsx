@@ -2,12 +2,13 @@ import './Login.css'
 import { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 import { FcGoogle } from 'react-icons/Fc';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
+    const navigate = useNavigate()
     // input value pass
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
@@ -51,7 +52,7 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then(() => {
                 setTimeout(() => {
-                    Navigate('/')
+                    navigate('/')
                 }, 3000);
             }).catch((error) => {
                 const errorCode = error.code;
