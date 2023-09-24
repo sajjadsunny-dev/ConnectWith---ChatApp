@@ -31,6 +31,7 @@ export default {
       backgroundImage: {
         'registerBanner': "url('images/register.jpg')",
         'loginBanner': "url('images/login.jpg')",
+        '404errorBg': "url('images/404errorBg.png')",
       }, screens: {
         'tablet': '740px',
         // => @media (min-width: 640px) { ... }

@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import ResetPassword from './Pages/ResetPassword/ResetPassword'
 import Home from './Pages/Home/Home'
+import Error404 from './Pages/Error404/Error404'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPassword />
+  },
+  {
+    path: "*",
+    element: <Error404 />
   },
 ]);
 
