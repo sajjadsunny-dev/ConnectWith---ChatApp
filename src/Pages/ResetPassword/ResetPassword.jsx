@@ -1,15 +1,21 @@
 import { useState } from 'react'
 import './ResetPassword.css'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
 
 const ResetPassword = () => {
+   const auth = getAuth();
+   // const newPassword = getASecureRandomPassword();
+   const navigate = useNavigate();
+
    const [resetEmail, setResetEmail] = useState('')
    const [resetEmailError, setResetEmailError] = useState('')
    const isValidEmail = (email) => {
       const emailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
       return emailRegex.test(email);
    }
-   const handleResetLoginEmail = (e) => {
+   const handleResetemail = (e) => {
       setResetEmail(e.target.value);
       setResetEmailError('')
    }
@@ -19,6 +25,21 @@ const ResetPassword = () => {
       } else if (!isValidEmail(resetEmail)) {
          setResetEmailError('Enter Valid E-mail Address')
       }
+      if (resetEmail && isValidEmail(resetEmail)) {
+         sendPasswordResetEmail(auth, resetEmail)
+            .then(() => {
+               setResetEmail('')
+               toast.warn('Check your email to reset password', { containerId: 'C' });
+               setTimeout(() => {
+                  navigate('/sign-in')
+               }, 4500);
+            })
+            .catch((error) => {
+               const errorCode = error.code;
+               console.log(errorCode);
+            });
+      }
+
    }
    return (
       <>
@@ -28,6 +49,20 @@ const ResetPassword = () => {
             </div>
             <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex items-center sm:py-8 md:p-0">
                <div className="xl:ml-16 px-3 md:px-5 lg:px-0">
+                  <ToastContainer
+                     enableMultiContainer
+                     containerId={'C'}
+                     position="top-center"
+                     autoClose={5000}
+                     hideProgressBar={false}
+                     newestOnTop={false}
+                     closeOnClick
+                     rtl={false}
+                     pauseOnFocusLoss
+                     draggable
+                     pauseOnHover
+                     theme="dark"
+                  />
                   <div className="">
                      <img className='sm:hidden w-8/12 mx-auto mb-7' src="images/smdeviceReset.png" alt="" />
                   </div>
@@ -43,8 +78,8 @@ const ResetPassword = () => {
                            </div>
                         }
                         <div className='relative mt-6 md:mt-10'>
-                           <input onChange={handleResetLoginEmail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='loginEmail' type="email" placeholder='' />
-                           <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${resetEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="loginEmail">Email Address</label>
+                           <input onChange={handleResetemail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='email' type="email" placeholder='' />
+                           <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${resetEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="email">Email Address</label>
                         </div>
                      </div>
 
