@@ -17,7 +17,8 @@ export default {
       },
       fontFamily: {
         'nunito': ['Nunito', 'sans-serif'],
-        'openSans': ['Open Sans', 'sans-serif']
+        'openSans': ['Open Sans', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
 
       },
       transitionTimingFunction: {
@@ -27,6 +28,7 @@ export default {
         'navShadow': '0px 0px 20px 0px rgba(0, 0, 0, .05)',
         'cardShadow': '0px 0px 20px 5px rgba(63, 61, 86, 0.05)',
         'monialShadow': '0px 0px 20px 5px rgba(0, 19, 119, 0.05)',
+        'homeCardShadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       backgroundImage: {
         'registerBanner': "url('images/register.jpg')",
@@ -36,6 +38,12 @@ export default {
         'tablet': '740px',
         // => @media (min-width: 640px) { ... }
       },
+      borderRadius: {
+        'custom': '20px',
+      },
+      dropShadow: {
+        'navIconDropShadow': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      }
     },
   },
   plugins: [],
