@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './ResetPassword.css'
 import { Link, useNavigate } from "react-router-dom"
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
