@@ -29,6 +29,7 @@ export default {
         'cardShadow': '0px 0px 20px 5px rgba(63, 61, 86, 0.05)',
         'monialShadow': '0px 0px 20px 5px rgba(0, 19, 119, 0.05)',
         'homeCardShadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+        'navAfterShadow': '-2px 0px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       backgroundImage: {
         'registerBanner': "url('images/register.jpg')",
