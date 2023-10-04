@@ -71,7 +71,7 @@ const Register = () => {
                     setPassword('')
                     toast.warn('Please verify your email to Continue', { containerId: 'B' });
                     setTimeout((redirect) => {
-                        navigate('/')
+                        navigate('/sign-in')
                         return redirect;
                     }, 4500);
                 })
@@ -111,7 +111,7 @@ const Register = () => {
                         />
 
                         <h2 className='font-nunito text-center lg:text-start md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Get started with easily register</h2>
-                        <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Free register and you can enjoy it</p>
+                        <p className='font-nunito text-xl text-center lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 mt-2 md:mt-[13px]'>Free register and you can enjoy it</p>
                         <form className='w-full lg:w-[398px]'>
                             <div className="relative">
                                 {

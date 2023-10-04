@@ -1,11 +1,14 @@
-simport { useState } from 'react'
+import { useState } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
 import { FcGoogle } from 'react-icons/Fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { userLoginInfo } from '../../slices/userSlice';
 
 const Login = () => {
+    const dispatch = useDispatch
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const navigate = useNavigate()
@@ -43,19 +46,22 @@ const Login = () => {
 
         if (email && password && isValidEmail(email)) {
             signInWithEmailAndPassword(auth, email, password)
-                .then(() => {
+                .then((user) => {
                     setemail('')
                     setPassword('')
                     toast.success('login success');
+                    // console.log(user.user);
+                    dispatch(userLoginInfo(user.user))
+                    // dispatch(userLoginInfo(user.user))
                     setTimeout(() => {
                         navigate('/')
                     }, 3000);
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    if (errorCode.includes("auth/invalid-login-credentials")) {
-                        setemailError('Invalid username or password')
-                    }
+                    // const errorCode = error.code;
+                    // if (errorCode.includes("auth/invalid-login-credentials")) {
+                    //     setemailError('Invalid username or password')
+                    // }
                 });
         }
     }

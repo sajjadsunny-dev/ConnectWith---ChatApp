@@ -35,3 +35,8 @@ body::-webkit-scrollbar {
 }
 
 /* login and Forget password css  */
+
+/* home page li's border bottom remove */
+.eraseBorder li:last-child {
+    border-bottom: 0;
+}
