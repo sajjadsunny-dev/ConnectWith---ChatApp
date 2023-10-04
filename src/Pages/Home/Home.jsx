@@ -2,8 +2,19 @@ import { BsThreeDotsVertical } from 'react-icons/Bs';
 import { BiPlusMedical } from 'react-icons/Bi';
 import { LuSearch } from 'react-icons/Lu';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+   const navigate = useNavigate()
+   const data = useSelector(state => state.userLoginInfo.userInfo)
+   console.log(data);
+   useEffect(() => {
+      if (!data) {
+         navigate('/*')
+      }
+   })
    return (
       <>
          <section className="h-screen px-5 py-5 grid grid-cols-9 gap-10">

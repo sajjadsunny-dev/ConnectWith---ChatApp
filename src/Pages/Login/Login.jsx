@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { userLoginInfo } from '../../slices/userSlice';
 
 const Login = () => {
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const navigate = useNavigate()
@@ -50,18 +50,17 @@ const Login = () => {
                     setemail('')
                     setPassword('')
                     toast.success('login success');
-                    // console.log(user.user);
-                    dispatch(userLoginInfo(user.user))
-                    // dispatch(userLoginInfo(user.user))
+                    dispatch(userLoginInfo(user.user));
+                    localStorage.setItem('userLoginInfo', JSON.stringify(userLoginInfo(user)))
                     setTimeout(() => {
                         navigate('/')
-                    }, 3000);
+                    }, 2000);
                 })
                 .catch((error) => {
-                    // const errorCode = error.code;
-                    // if (errorCode.includes("auth/invalid-login-credentials")) {
-                    //     setemailError('Invalid username or password')
-                    // }
+                    const errorCode = error.code;
+                    if (errorCode.includes("auth/invalid-login-credentials")) {
+                        setemailError('Invalid username or password')
+                    }
                 });
         }
     }
