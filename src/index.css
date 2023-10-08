@@ -6,6 +6,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* login and Forget password css  */
 .LoginInput:focus~.LoginLabel,
 .LoginInput:not(:placeholder-shown).LoginInput:not(:focus)~.LoginLabel,
