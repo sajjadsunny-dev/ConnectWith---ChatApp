@@ -50,8 +50,8 @@ const Login = () => {
                     setemail('')
                     setPassword('')
                     toast.success('login success');
-                    dispatch(userLoginInfo(user.user));
-                    localStorage.setItem('userLoginInfo', JSON.stringify(userLoginInfo(user)))
+                    dispatch(userLoginInfo(user));
+                    localStorage.setItem('userLoginInfo', JSON.stringify((user)))
                     setTimeout(() => {
                         navigate('/')
                     }, 2000);

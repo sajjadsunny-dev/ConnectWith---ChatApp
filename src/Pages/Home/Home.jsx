@@ -16,7 +16,6 @@ import BlockList from '../../components/BlockList/BlockList';
 const Home = () => {
    const navigate = useNavigate()
    const data = useSelector(state => state.userLoginInfo.userInfo)
-   console.log(data);
    useEffect(() => {
       if (!data) {
          navigate('/*')

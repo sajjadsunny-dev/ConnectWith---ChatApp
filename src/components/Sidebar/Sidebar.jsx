@@ -3,8 +3,26 @@ import { ImExit } from 'react-icons/Im';
 import { AiOutlineHome } from 'react-icons/Ai';
 import { PiChatCircleDotsFill } from 'react-icons/Pi';
 import { SlSettings } from 'react-icons/Sl';
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userLoginInfo } from '../../slices/userSlice';
 
 const Sidebar = () => {
+   const auth = getAuth();
+   const navigate = useNavigate()
+   const dispatch = useDispatch()
+
+   const handleLogOut = () => {
+      signOut(auth).then(() => {
+         dispatch(userLoginInfo(null));
+         localStorage.removeItem('userLoginInfo');
+         setTimeout(() => {
+            navigate('/sign-in');
+         }, 0);
+      }).catch(() => {
+      });
+   }
    return (
       <div className='h-full'>
          <nav className="bg-themeColor h-full rounded-custom pt-7 pb-10 flex flex-col items-center justify-between">
@@ -29,7 +47,7 @@ const Sidebar = () => {
                </li> */}
             </ul>
             <div className="text-5xl text-white drop-shadow-navIconDropShadow cursor-pointer">
-               <ImExit />
+               <ImExit onClick={handleLogOut} />
             </div>
          </nav>
       </div>
