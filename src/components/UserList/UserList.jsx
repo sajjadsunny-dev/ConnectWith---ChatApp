@@ -4,7 +4,7 @@ import { BiPlusMedical } from 'react-icons/Bi';
 const UserList = () => {
    return (
       <>
-         <div className=" w-[32%] h-[355px] pt-5 pb-3 pl-5 pr-[23px] rounded-custom shadow-homeCardShadow">
+         <div className=" w-[32%] h-[355px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
             <div className='flex justify-between mb-5'>
                <h3 className='font-poppins text-xl font-semibold'>User List</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>

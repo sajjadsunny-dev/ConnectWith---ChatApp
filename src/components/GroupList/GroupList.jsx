@@ -3,7 +3,7 @@ import { BsThreeDotsVertical } from 'react-icons/Bs';
 const GroupList = () => {
    return (
       <>
-         <div className='h-[77%] pt-3 pb-3 pl-5 pr-[23px] rounded-custom shadow-homeCardShadow'>
+         <div className='h-[77%] pt-3 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow'>
             <div className='flex justify-between mb-1'>
                <h3 className='font-poppins text-xl font-semibold'>Groups List</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>

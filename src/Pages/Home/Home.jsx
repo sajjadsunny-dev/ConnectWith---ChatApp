@@ -1,6 +1,3 @@
-// import { BsThreeDotsVertical } from 'react-icons/Bs';
-// import { BiPlusMedical } from 'react-icons/Bi';
-// import { LuSearch } from 'react-icons/Lu';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -25,7 +22,7 @@ const Home = () => {
       <>
          <section className="h-screen px-5 py-5 grid grid-cols-9 gap-10">
             <div className="h-full col-span-1">
-               <Sidebar></Sidebar>
+               <Sidebar />
             </div>
 
             <div className="w-full col-span-8 flex flex-col">
@@ -49,14 +46,10 @@ const Home = () => {
                   <FriendRequest />
 
                   {/* My Groups */}
-                  <div className="bg-lime-500 w-[32%] h-[355px]">
-                     <MyGroups />
-                  </div>
+                  <MyGroups />
 
                   {/* Blocked Users */}
-                  <div className="bg-green-500 w-[32%] h-[355px]">
-                     <BlockList />
-                  </div>
+                  <BlockList />
                </div>
             </div>
          </section>
