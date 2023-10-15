@@ -15,7 +15,7 @@ const Home = () => {
    const data = useSelector(state => state.userLoginInfo.userInfo)
    useEffect(() => {
       if (!data) {
-         navigate('/*')
+         navigate('/sign-in')
       }
    })
    return (

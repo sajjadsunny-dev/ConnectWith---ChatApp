@@ -24,7 +24,7 @@ const Sidebar = () => {
       });
    }
    return (
-      <div className='h-full'>
+      <>
          <nav className="bg-themeColor h-full rounded-custom pt-7 pb-10 flex flex-col items-center justify-between">
             <div className="">
                <img src="images/group-lists/g1.png" alt="" />
@@ -50,7 +50,7 @@ const Sidebar = () => {
                <ImExit onClick={handleLogOut} />
             </div>
          </nav>
-      </div>
+      </>
    )
 }
 

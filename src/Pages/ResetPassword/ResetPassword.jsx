@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const ResetPassword = () => {
    const auth = getAuth();
-   // const newPassword = getASecureRandomPassword();
    const navigate = useNavigate();
 
    const [resetEmail, setResetEmail] = useState('')
@@ -18,7 +17,7 @@ const ResetPassword = () => {
       setResetEmail(e.target.value);
       setResetEmailError('')
    }
-   const handelSearchEmail = () => {
+   const handelSearchEmail = async () => {
       if (!resetEmail) {
          setResetEmailError('You have to Enter your E-mail Address')
       } else if (!isValidEmail(resetEmail)) {
@@ -36,6 +35,9 @@ const ResetPassword = () => {
             .catch((error) => {
                const errorCode = error.code;
                console.log(errorCode);
+               if (errorCode == 'auth/invalid-email') {
+                  setResetEmailError('Invalid Email')
+               }
             });
       }
 
@@ -66,7 +68,7 @@ const ResetPassword = () => {
                      <img className='sm:hidden w-8/12 mx-auto mb-7' src="images/smdeviceReset.png" alt="" />
                   </div>
                   <h2 className='font-openSans md:w-full text-3xl md:text-[34px] font-bold text-headColor mx-auto md:mx-0'>Did you Forgot your Password?</h2>
-                  <p className='font-nunito text-base md:text-xl lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 md:mt-2 mt-2 md:mt-[13px]'>Please Enter your E-mail to Search your Account</p>
+                  <p className='font-nunito text-base md:text-xl lg:text-start font-regular text-black opacity-50 mb-2 md:mb-0 mt-2 md:mt-[13px]'>Please Enter your E-mail to Search your Account</p>
                   <form className='w-full lg:w-[398px]'>
 
                      <div className="relative">
@@ -77,7 +79,7 @@ const ResetPassword = () => {
                            </div>
                         }
                         <div className='relative mt-6 md:mt-10'>
-                           <input onChange={handleResetemail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='email' type="email" placeholder='' />
+                           <input onChange={handleResetemail} className={`resetInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${resetEmailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='email' value={resetEmail} type="email" placeholder='' />
                            <label className={`restLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${resetEmailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="email">Email Address</label>
                         </div>
                      </div>
