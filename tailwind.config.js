@@ -32,7 +32,8 @@ export default {
         'navAfterShadow': '-2px 0px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       backgroundImage: {
-        'registerBanner': "url('images/register.jpg')",
+        'registerBanner': "url('../public/images/register.jpg')",
+        // 'registerBanner': "url('images/register.jpg')",
         'loginBanner': "url('images/login.jpg')",
         '404errorBg': "url('images/404errorBg.png')",
       },
