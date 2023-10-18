@@ -1,8 +1,7 @@
-import { BsBell } from 'react-icons/Bs';
-import { ImExit } from 'react-icons/Im';
-import { AiOutlineHome } from 'react-icons/Ai';
-import { PiChatCircleDotsFill } from 'react-icons/Pi';
-import { SlSettings } from 'react-icons/Sl';
+import { ImExit } from 'react-icons/im';
+import { AiOutlineHome, AiOutlineBell } from 'react-icons/ai';
+import { PiChatCircleDotsFill } from 'react-icons/pi';
+import { SlSettings } from 'react-icons/sl';
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -17,9 +16,7 @@ const Sidebar = () => {
       signOut(auth).then(() => {
          dispatch(userLoginInfo(null));
          localStorage.removeItem('userLoginInfo');
-         setTimeout(() => {
-            navigate('/sign-in');
-         }, 0);
+         navigate('/sign-in');
       }).catch(() => {
       });
    }
@@ -36,8 +33,8 @@ const Sidebar = () => {
                <li className="h-12 relative mb-14 text-5xl text-[#BAD1FF] cursor-pointer">
                   <PiChatCircleDotsFill className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
-               <li className="h-12 relative mb-14 text-5xl text-[#BAD1FF] cursor-pointer">
-                  <BsBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
+               <li className="h-12 relative mb-14 text-[60px] text-[#BAD1FF] cursor-pointer">
+                  <AiOutlineBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
                <li className="h-12 relative text-5xl text-[#BAD1FF] cursor-pointer">
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />

@@ -1,5 +1,5 @@
-import { BsThreeDotsVertical } from 'react-icons/Bs';
-import { BiPlusMedical } from 'react-icons/Bi';
+import { HiDotsVertical } from 'react-icons/hi';
+import { FaPlus } from 'react-icons/fa';
 
 const UserList = () => {
    return (
@@ -8,7 +8,7 @@ const UserList = () => {
             <div className='flex justify-between mb-5'>
                <h3 className='font-poppins text-xl font-semibold'>User List</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>
-                  <BsThreeDotsVertical />
+                  <HiDotsVertical />
                </div>
             </div>
             <ul className='eraseBorder h-[86%] overflow-y-auto'>
@@ -24,7 +24,7 @@ const UserList = () => {
                      </div>
                   </div>
                   <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-14'>
-                     <BiPlusMedical className='' />
+                     <FaPlus className='' />
                   </div>
                </li>
                <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -38,7 +38,7 @@ const UserList = () => {
                      </div>
                   </div>
                   <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-14'>
-                     <BiPlusMedical className='' />
+                     <FaPlus className='' />
                   </div>
                </li>
                <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -52,7 +52,7 @@ const UserList = () => {
                      </div>
                   </div>
                   <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-14'>
-                     <BiPlusMedical className='' />
+                     <FaPlus className='' />
                   </div>
                </li>
                <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -66,7 +66,7 @@ const UserList = () => {
                      </div>
                   </div>
                   <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-14'>
-                     <BiPlusMedical className='' />
+                     <FaPlus className='' />
                   </div>
                </li>
                <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -80,7 +80,7 @@ const UserList = () => {
                      </div>
                   </div>
                   <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-14'>
-                     <BiPlusMedical className='' />
+                     <FaPlus className='' />
                   </div>
                </li>
 

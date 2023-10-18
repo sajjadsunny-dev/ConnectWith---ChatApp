@@ -1,5 +1,5 @@
-import { LuSearch } from 'react-icons/Lu';
-import { BsThreeDotsVertical } from 'react-icons/Bs';
+import { LuSearch } from 'react-icons/lu';
+import { HiDotsVertical } from 'react-icons/hi';
 
 const SearchBox = () => {
    return (
@@ -12,7 +12,7 @@ const SearchBox = () => {
             <input className="focus:outline-none font-poppins text-base font-medium text-black py-[17px] pl-[78px] pr-12 w-full shadow-homeCardShadow rounded-custom" type="text" placeholder="Search" />
 
             <div className="text-2xl cursor-pointer text-themeColor absolute top-1/2 right-[22px] translate-y-[-50%]">
-               <BsThreeDotsVertical />
+               <HiDotsVertical />
             </div>
          </form>
       </>

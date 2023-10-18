@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/Ai';
+import { HiEyeOff, HiEye } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/Fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
@@ -113,7 +113,7 @@ const Login = () => {
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-10'>
-                                    <input onChange={handleemail} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='email' type="email" placeholder='' />
+                                    <input onChange={handleemail} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${emailError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} value={email} id='email' type="email" placeholder='' />
                                     <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor  absolute top-1/2 left-0 translate-y-[-50%] cursor-text duration-300 select-none ${emailError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="email">Email Address</label>
                                 </div>
                             </div>
@@ -126,10 +126,10 @@ const Login = () => {
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-16">
-                                    <input onChange={handlepassword} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='password' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
+                                    <input onChange={handlepassword} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 pr-[65px] ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='password' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
                                     <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-y-[-50%] duration-300 cursor-text select-none ${passwordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="password">Password</label>
 
-                                    <div onClick={togglepasswordVisiblity} className={`text-3xl p-2 absolute right-4 top-1/2 translate-y-[-50%] opacity-30 cursor-pointer duration-200 ${passwordVisible ? 'text-themeColor opacity-90' : 'text-black'}`}>{passwordVisible ? <AiFillEyeInvisible /> : <AiFillEye />}</div>
+                                    <div onClick={togglepasswordVisiblity} className={`text-3xl p-2 absolute right-4 top-1/2 translate-y-[-50%] opacity-30 cursor-pointer duration-200 ${passwordVisible ? 'text-themeColor opacity-90' : 'text-black'}`}>{passwordVisible ? <HiEyeOff /> : <HiEye />}</div>
                                 </div>
                             </div>
 

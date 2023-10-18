@@ -1,4 +1,4 @@
-import { BsThreeDotsVertical } from 'react-icons/Bs';
+import { HiDotsVertical } from 'react-icons/hi';
 
 const FriendRequest = () => {
    return (
@@ -7,7 +7,7 @@ const FriendRequest = () => {
             <div className='flex justify-between mb-2'>
                <h3 className='font-poppins text-xl font-semibold'>Friend Request</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>
-                  <BsThreeDotsVertical />
+                  <HiDotsVertical />
                </div>
             </div>
 
