@@ -87,7 +87,7 @@ const Login = () => {
         <>
             <section className='h-screen sm:h-auto md:h-screen flex'>
                 <div className="w-full sm:w-[60%] tablet:w-[50%] md:w-[55%] h-full tablet:h-auto flex justify-center items-center sm:py-8 md:p-0">
-                    <div className="xl:ml-20 px-3 md:px-5 lg:px-0">
+                    <div className="xl:ml-20 md:px-5 lg:px-0">
                         <ToastContainer
                             position="top-center"
                             autoClose={5000}
@@ -109,7 +109,7 @@ const Login = () => {
                                 {
                                     emailError &&
                                     <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
-                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{emailError}</h5>
+                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-8 after:border-solid after:translate-x-[20px] rounded select-none">{emailError}</h5>
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-10'>
@@ -122,10 +122,10 @@ const Login = () => {
                                 {
                                     passwordError &&
                                     <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
-                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{passwordError}</h5>
+                                        <h5 className="emailError LoginError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-8 after:border-solid after:translate-x-[20px] rounded select-none">{passwordError}</h5>
                                     </div>
                                 }
-                                <div className="relative mt-12 md:mt-16">
+                                <div className="relative mt-16">
                                     <input onChange={handlepassword} className={`LoginInput py-3 md:py-5 w-full border-b-2 focus:outline-none font-nunito text-xl font-medium md:font-semibold text-headColor focus:opacity-70 pr-[65px] ${passwordError ? 'border-red-600 focus:border-headColor' : 'border-headColor opacity-30'}`} id='password' type={passwordVisible ? 'text' : 'password'} value={password} placeholder='' />
                                     <label className={`LoginLabel font-nunito text-xl font-medium md:font-semibold text-labelColor absolute top-1/2 left-0 translate-y-[-50%] duration-300 cursor-text select-none ${passwordError ? 'text-red-600 opacity-1000' : 'opacity-30 '}`} htmlFor="password">Password</label>
 

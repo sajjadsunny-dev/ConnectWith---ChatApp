@@ -116,8 +116,8 @@ const Register = () => {
                             <div className="relative">
                                 {
                                     emailError &&
-                                    <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="emailError error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{emailError}</h5>
+                                    <div className=" absolute bottom-full right-0 translate-y-[-15px]">
+                                        <h5 className="emailError error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:right-0 after:translate-x-[-20px] after:border-8 after:border-solid select-none">{emailError}</h5>
                                     </div>
                                 }
                                 <div className='relative mt-12 md:mt-[55px]'>
@@ -129,8 +129,8 @@ const Register = () => {
                             <div className="relative">
                                 {
                                     fullNameError &&
-                                    <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{fullNameError}</h5>
+                                    <div className=" absolute bottom-full right-0 translate-y-[-15px]">
+                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:right-0 after:translate-x-[-20px] after:border-8 after:border-solid select-none">{fullNameError}</h5>
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">
@@ -142,8 +142,8 @@ const Register = () => {
                             <div className="relative">
                                 {
                                     passwordError &&
-                                    <div className=" absolute bottom-full left-1/2 translate-x-[-50%] translate-y-[-15px]">
-                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-[15px] font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:left-2/4 after:translate-x-[-50%] after:border-8 after:border-solid select-none">{passwordError}</h5>
+                                    <div className=" absolute bottom-full right-0 translate-y-[-15px]">
+                                        <h5 className="error py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-[15px] font-semibold rounded text-white after:content-[''] after:absolute after:top-full after:right-0 after:translate-x-[-20px] after:border-8 after:border-solid select-none">{passwordError}</h5>
                                     </div>
                                 }
                                 <div className="relative mt-12 md:mt-[60px]">

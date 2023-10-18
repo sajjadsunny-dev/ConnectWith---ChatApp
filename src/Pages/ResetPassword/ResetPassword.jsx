@@ -75,7 +75,7 @@ const ResetPassword = () => {
                         {
                            resetEmailError &&
                            <div className=" absolute bottom-full left-0 top-full translate-y-[10px]">
-                              <h5 className="resetEmailError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-4 after:border-solid select-none">{resetEmailError}</h5>
+                              <h5 className="resetEmailError py-1 px-3 bg-errorBg whitespace-nowrap font-nunito text-sm md:text-base font-semibold text-white after:content-[''] after:absolute after:bottom-full after:left-0 after:border-8 after:border-solid after:translate-x-[20px] rounded select-none">{resetEmailError}</h5>
                            </div>
                         }
                         <div className='relative mt-6 md:mt-10'>

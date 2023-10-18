@@ -28,14 +28,9 @@ body::-webkit-scrollbar {
     opacity: .7;
 }
 
-.LoginError,
-.resetEmailError {
-    border-radius: 0 4px 4px;
-}
-
 .LoginError::after,
 .resetEmailError::after {
-    border-color: transparent transparent rgba(0, 0, 0, .4) rgba(0, 0, 0, .4);
+    border-color: transparent transparent rgba(0, 0, 0, .4) transparent;
 }
 
 /* login and Forget password css  */
