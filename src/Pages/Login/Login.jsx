@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { HiEyeOff, HiEye } from 'react-icons/hi';
-import { FcGoogle } from 'react-icons/Fc';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { toast, ToastContainer } from 'react-toastify';
