@@ -1,16 +1,16 @@
-import Sidebar from '../../components/Sidebar/Sidebar';
-import SearchBox from '../../components/searchBox/SearchBox';
-import GroupList from '../../components/GroupList/GroupList';
-import Friends from '../../components/Friends/Friends';
-import UserList from '../../components/UserList/UserList';
-import FriendRequest from '../../components/FriendRequest/FriendRequest';
-import MyGroups from '../../components/MyGroups/MyGroups';
-import BlockList from '../../components/BlockList/BlockList';
-import { userLoginInfo } from '../../slices/userSlice';
+import Sidebar from './../../components/Sidebar/Sidebar';
+import GroupList from './../../components/GroupList/GroupList';
+import Friends from './../../components/Friends/Friends';
+import UserList from './../../components/UserList/UserList';
+import FriendRequest from './../../components/FriendRequest/FriendRequest';
+import MyGroups from './../../components/MyGroups/MyGroups';
+import BlockList from './../../components/BlockList/BlockList';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import SearchBox from './../../components/SearchBox/SearchBox';
+import { userLoginInfo } from '../../slices/userSlice';
 
 const Home = () => {
    const navigate = useNavigate()
