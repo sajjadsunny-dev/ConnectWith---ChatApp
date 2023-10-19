@@ -11,26 +11,34 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import SearchBox from './../../components/SearchBox/SearchBox';
 import { userLoginInfo } from '../../slices/userSlice';
+import { ColorRing } from "react-loader-spinner";
 
 const Home = () => {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
    const data = useSelector(state => state.userLoginInfo.userInfo)
-   useEffect(() => {
-      if (!data) {
-         navigate('/sign-in')
-      }
-   })
-
    const [verify, setVerify] = useState(false);
+   const [loading, setLoading] = useState(true);
    const auth = getAuth();
 
-   onAuthStateChanged(auth, (user) => {
-      if (user.emailVerified) {
-         setVerify(true)
+   useEffect(() => {
+      if (!data) {
+         setTimeout(() => {
+            navigate('/sign-in')
+         }, 500);
+      } else {
+         onAuthStateChanged(auth, (user) => {
+            if (user.emailVerified) {
+               setTimeout(() => {
+                  setLoading(false)
+               }, 500);
+               setVerify(true)
+            } else {
+               setLoading(false)
+            }
+         });
       }
-   });
-
-   const dispatch = useDispatch()
+   })
 
    const handleLogOut = () => {
       signOut(auth).then(() => {
@@ -44,7 +52,19 @@ const Home = () => {
    return (
       <>
          {
-            verify ?
+            loading ? (
+               <div className="flex justify-center items-center h-screen">
+                  <ColorRing
+                     visible={true}
+                     height="120"
+                     width="120"
+                     ariaLabel="blocks-loading"
+                     wrapperStyle={{}}
+                     wrapperClass="blocks-wrapper"
+                     colors={["#5F35F5", "#5F35F5", "#5F35F5", "#5F35F5", "#5F35F5"]}
+                  />
+               </div>
+            ) : verify ? (
                <section className="h-screen px-5 py-5 grid grid-cols-9 gap-10">
                   <div className="h-full col-span-1">
                      <Sidebar />
@@ -78,11 +98,13 @@ const Home = () => {
                      </div>
                   </div>
                </section>
-               :
-               <div className="h-screen bg-themeColor flex flex-col justify-center items-center">
-                  <h1 className="font-nunito text-[85px] text-white font-bold mb-5">Please Verify Your Email</h1>
-                  <button onClick={handleLogOut} className='py-5 px-7 font-nunito text-xl text-black font-semibold text-center bg-white rounded-[9px] hover:text-white hover:bg-[#FF9A00] duration-300' type="button">Go Back to Login</button>
-               </div>
+            )
+               : (
+                  <div className="h-screen bg-themeColor flex flex-col justify-center items-center">
+                     <h1 className="font-nunito text-[85px] text-white font-bold mb-5">Please Verify Your Email</h1>
+                     <button onClick={handleLogOut} className='py-5 px-7 font-nunito text-xl text-black font-semibold text-center bg-white rounded-[9px] hover:text-white hover:bg-[#FF9A00] duration-300' type="button">Go Back to Login</button>
+                  </div>
+               )
          }
       </>
    )
