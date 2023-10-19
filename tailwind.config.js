@@ -11,6 +11,8 @@ export default {
         'headColor': '#11175D',
         'labelColor': 'rgba(17, 23, 93, .7)',
         'errorBg': 'rgba(0, 0, 0, 0.4)',
+        'alertRed': '#FF0F0F',
+        'successGreen': '#23D160',
       },
       maxWidth: {
         'container': '1320px',
@@ -30,6 +32,7 @@ export default {
         'monialShadow': '0px 0px 20px 5px rgba(0, 19, 119, 0.05)',
         'homeCardShadow': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
         'navAfterShadow': '-2px 0px 4px 0px rgba(0, 0, 0, 0.25)',
+        'uploadImg': '-2px 3px 30px 4px rgba(0, 0, 0, 0.25)',
       },
       backgroundImage: {
         'registerBanner': "url('/images/login.jpg')",
