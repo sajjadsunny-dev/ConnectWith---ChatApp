@@ -1,6 +1,6 @@
 import './Register.css'
 import { HiEye, HiEyeOff } from 'react-icons/hi';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
@@ -63,13 +63,15 @@ const Register = () => {
 
         if (email && fullName && password && isValidEmail(email)) {
             createUserWithEmailAndPassword(auth, email, password).then(() => {
-                // console.log('registrtation completed');
-                // toast.success('registrtation completed', { containerId: 'A' });
-                sendEmailVerification(auth.currentUser).then(() => {
+                updateProfile(auth.currentUser, {
+                    displayName: fullName,
+                    photoURL: ""
+                }).then(() => {
                     setEmail('')
                     setFullName('')
                     setPassword('')
-                    toast.warn('Please verify your email to Continue', { containerId: 'B' });
+                    toast.success('registrtation completed', { containerId: 'B' });
+                    sendEmailVerification(auth.currentUser)
                     setTimeout((redirect) => {
                         navigate('/sign-in')
                         return redirect;
