@@ -5,10 +5,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { getDatabase, ref, set } from "firebase/database";
 
 const Register = () => {
     const auth = getAuth();
     const navigate = useNavigate()
+
+    // data base
+    const db = getDatabase();
+
     // input value pass
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState('')
@@ -62,26 +67,37 @@ const Register = () => {
         // }
 
         if (email && fullName && password && isValidEmail(email)) {
-            createUserWithEmailAndPassword(auth, email, password).then(() => {
-                updateProfile(auth.currentUser, {
-                    displayName: fullName,
-                    photoURL: ""
-                }).then(() => {
-                    setEmail('')
-                    setFullName('')
-                    setPassword('')
-                    toast.success('registrtation completed', { containerId: 'B' });
-                    sendEmailVerification(auth.currentUser)
-                    setTimeout((redirect) => {
-                        navigate('/sign-in')
-                        return redirect;
-                    }, 4500);
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((user) => {
+                    updateProfile(auth.currentUser, {
+                        displayName: fullName,
+                        photoURL: "../src/assets/user.jpg"
+                    })
+                        .then(() => {
+                            setEmail('')
+                            setFullName('')
+                            setPassword('')
+                            toast.success('registrtation completed', { containerId: 'B' });
+                            sendEmailVerification(auth.currentUser)
+                            setTimeout((redirect) => {
+                                navigate('/sign-in')
+                                return redirect;
+                            }, 4500);
+                        }).then(() => {
+                            set(ref(db, 'users/' + user.user.uid), {
+                                username: user.user.displayName,
+                                email: user.user.email,
+                            });
+                        })
+                        .catch((error) => {
+                            console.log(error.code);
+                        })
                 })
-            }).catch((error) => {
-                if (error.code.includes("auth/email-already-in-use")) {
-                    setEmailError('This E-maill already in use')
-                }
-            })
+                .catch((error) => {
+                    if (error.code.includes("auth/email-already-in-use")) {
+                        setEmailError('This E-maill already in use')
+                    }
+                })
         }
     }
 

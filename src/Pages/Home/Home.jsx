@@ -33,6 +33,8 @@ const Home = () => {
                   setLoading(false)
                }, 500);
                setVerify(true)
+               dispatch(userLoginInfo(user));
+               localStorage.setItem('userLoginInfo', JSON.stringify((user)))
             } else {
                setLoading(false)
             }

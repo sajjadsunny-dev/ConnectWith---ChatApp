@@ -27,7 +27,7 @@ const Sidebar = () => {
    const [image, setImage] = useState("");
    const [cropData, setCropData] = useState("");
    const cropperRef = createRef();
-   const data = useSelector(state => state.userLoginInfo.userInfo.user.photoURL);
+   const data = useSelector(state => state.userLoginInfo.userInfo);
 
    // logout button
    const handleLogOut = () => {
@@ -71,9 +71,7 @@ const Sidebar = () => {
          const storageRef = ref(storage, auth.currentUser.uid);
          const message4 = cropperRef.current?.cropper.getCroppedCanvas().toDataURL();
          uploadString(storageRef, message4, 'data_url').then((snapshot) => {
-            console.log('Uploaded a data_url string!');
             getDownloadURL(storageRef).then((downloadURL) => {
-               console.log('File available at', downloadURL);
                updateProfile(auth.currentUser, {
                   photoURL: downloadURL
                }).then(() => {
@@ -86,19 +84,23 @@ const Sidebar = () => {
 
    return (
       <>
-         <nav className="bg-themeColor h-full rounded-custom pt-7 pb-10 flex flex-col items-center justify-between">
-            <div onClick={profileDpUpload} className="w-[100px] h-[100px] rounded-full overflow-hidden cursor-pointer relative after:content-[''] after:absolute after:h-full after:w-full after:bg-transparent after:top-0 after:left-0 after:duration-200 hover:after:bg-[#00000069] text-[35px] text-transparent hover:text-white" >
-               <BiSolidCloudUpload className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] duration-200 z-10" />
-               <img className="w-full h-full" src={data} alt="" />
+         <nav className="bg-themeColor h-full rounded-custom py-7 flex flex-col items-center justify-between">
+            <div className="">
+               <div onClick={profileDpUpload} className="w-[100px] h-[100px] rounded-full overflow-hidden cursor-pointer relative after:content-[''] after:absolute after:h-full after:w-full after:bg-transparent after:top-0 after:left-0 after:duration-200 hover:after:bg-[#00000069] text-[35px] text-transparent hover:text-white mx-auto" >
+                  <BiSolidCloudUpload className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] duration-200 z-10" />
+                  <img className="w-full h-full" src={data?.photoURL} alt="" />
+               </div>
+               <h2 className="px-3 font-poppins text-base text-white font-semibold text-center mt-3">{data.displayName
+               }</h2>
             </div>
-            <ul className='w-full mb-12'>
-               <li className="h-12 relative mb-14 text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
+            <ul className='w-full mb-5'>
+               <li className="h-12 relative mb-12 text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear' />
                </li>
-               <li className="h-12 relative mb-14 text-5xl text-[#BAD1FF] cursor-pointer">
+               <li className="h-12 relative mb-12 text-5xl text-[#BAD1FF] cursor-pointer">
                   <PiChatCircleDotsFill className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
-               <li className="h-12 relative mb-14 text-[60px] text-[#BAD1FF] cursor-pointer">
+               <li className="h-12 relative mb-12 text-[60px] text-[#BAD1FF] cursor-pointer">
                   <AiOutlineBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
                <li className="h-12 relative text-5xl text-[#BAD1FF] cursor-pointer">
@@ -126,7 +128,7 @@ const Sidebar = () => {
                            :
                            (
                               <div onClick={profileDpUpload} className="w-[120px] h-[120px] rounded-full overflow-hidden cursor-grab mx-auto" >
-                                 <img className="w-full h-full" src={profilePhoto} alt="" />
+                                 <img className="w-full h-full" src={data.photoURL} alt="" />
                               </div>
                            )
                      }
