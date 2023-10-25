@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginInfo } from '../../slices/userSlice';
 import { BiSolidCloudUpload } from 'react-icons/bi';
-import profilePhoto from '/images/profilePhoto.png';
 import { createRef, useState } from 'react';
+import { ColorRing } from "react-loader-spinner";
 
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
@@ -28,6 +28,8 @@ const Sidebar = () => {
    const [cropData, setCropData] = useState("");
    const cropperRef = createRef();
    const data = useSelector(state => state.userLoginInfo.userInfo);
+
+   const [loading, setLoading] = useState(false);
 
    // logout button
    const handleLogOut = () => {
@@ -65,6 +67,7 @@ const Sidebar = () => {
    };
    // Crop data
    const getCropData = () => {
+      setLoading(true)
       if (typeof cropperRef.current?.cropper !== "undefined") {
          setCropData(cropperRef.current?.cropper.getCroppedCanvas().toDataURL());
 
@@ -76,6 +79,7 @@ const Sidebar = () => {
                   photoURL: downloadURL
                }).then(() => {
                   setUploadDP(false)
+                  setLoading(false)
                })
             });
          });
@@ -154,8 +158,26 @@ const Sidebar = () => {
                         />
                      }
                      <div className="flex justify-end mt-6">
-                        <button onClick={getCropData} className="py-2.5 px-6 font-nunito text-lg text-white font-semibold text-center bg-successGreen rounded-[9px] hover:bg-[#009534] duration-300 mr-5">Upload</button>
-                        <button onClick={handleCancelUpload} className="py-2.5 px-6 font-nunito text-lg text-white font-semibold text-center bg-alertRed rounded-[9px] hover:bg-[#AD0000] duration-300">Cancel</button>
+                        <button onClick={getCropData} className="py-2.5 w-[110px] font-nunito text-lg text-white font-semibold text-center bg-successGreen rounded-[9px] hover:bg-[#009534] duration-300 mr-5 relative">
+                           {
+                              loading ?
+                                 <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
+                                    <ColorRing
+                                       visible={true}
+                                       height="45"
+                                       width="45"
+                                       ariaLabel="blocks-loading"
+                                       wrapperStyle={{}}
+                                       wrapperClass="blocks-wrapper"
+                                       colors={["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]}
+                                    />
+                                 </div>
+                                 :
+                                 <h3>Upload</h3>
+                           }
+                        </button>
+
+                        <button onClick={handleCancelUpload} className="py-2.5 w-[110px] font-nunito text-lg text-white font-semibold text-center bg-alertRed rounded-[9px] hover:bg-[#AD0000] duration-300">Cancel</button>
                      </div>
                   </div>
                </div>
