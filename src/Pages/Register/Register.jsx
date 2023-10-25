@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set } from "firebase/database";
+import { ColorRing } from "react-loader-spinner";
 
 const Register = () => {
     const auth = getAuth();
@@ -22,6 +23,8 @@ const Register = () => {
         const emailRegex = /^[a-zA-Z0-9._]+@(gmail|yahoo|hotmail)+(\.\w{2,3})+$/;
         return emailRegex.test(email);
     }
+
+    const [loading, setLoading] = useState(false);
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -41,6 +44,7 @@ const Register = () => {
     const [passwordError, setPasswordError] = useState('')
 
     const handleSubmit = () => {
+        setLoading(true)
         if (!email) {
             setEmailError('Enter your E-mail to signup');
         } else if (!isValidEmail(email)) {
@@ -80,6 +84,7 @@ const Register = () => {
                             toast.success('registrtation completed', { containerId: 'B' });
                             sendEmailVerification(auth.currentUser)
                             setTimeout((redirect) => {
+                                setLoading(false)
                                 navigate('/sign-in')
                                 return redirect;
                             }, 4500);
@@ -172,7 +177,24 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            <button onClick={handleSubmit} className='py-5 w-full font-nunito text-xl text-white font-semibold text-center bg-themeColor rounded-[86px] hover:bg-[#FF9A00] duration-300 mt-[42px] mb-[25px]' type="button">Sign up</button>
+                            <button onClick={handleSubmit} className='py-5 w-full h-[68px] font-nunito text-xl text-white font-semibold text-center bg-themeColor rounded-[86px] hover:bg-[#FF9A00] duration-300 mt-[42px] mb-[25px] relative' type="button">
+                                {
+                                    loading ?
+                                        <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-20">
+                                            <ColorRing
+                                                visible={true}
+                                                height="55"
+                                                width="55"
+                                                ariaLabel="blocks-loading"
+                                                wrapperStyle={{}}
+                                                wrapperClass="blocks-wrapper"
+                                                colors={["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]}
+                                            />
+                                        </div>
+                                        :
+                                        <h3>Signup</h3>
+                                }
+                            </button>
                             <div>
                                 <p className='font-openSans text-sm font-regular text-[#03014C] text-center'>Already  have an account ?<Link to="/sign-in" className='ml-1.5 font-bold text-[#EA6C00]' href="#">Sign In</Link></p>
                             </div>
