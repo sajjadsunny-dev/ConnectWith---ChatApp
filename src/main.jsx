@@ -18,15 +18,15 @@ import { Provider } from 'react-redux'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>
+    element: <Home />
   },
   {
     path: "/sign-up",
-    element: <Register></Register>
+    element: <Register />
   },
   {
     path: "/sign-in",
-    element: <Login></Login>
+    element: <Login />
   },
   {
     path: "/reset-password",

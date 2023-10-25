@@ -78,16 +78,16 @@ const Register = () => {
                         photoURL: "../src/assets/user.jpg"
                     })
                         .then(() => {
+                            setLoading(false)
                             setEmail('')
                             setFullName('')
                             setPassword('')
                             toast.success('registrtation completed', { containerId: 'B' });
                             sendEmailVerification(auth.currentUser)
                             setTimeout((redirect) => {
-                                setLoading(false)
                                 navigate('/sign-in')
                                 return redirect;
-                            }, 4500);
+                            }, 3000);
                         }).then(() => {
                             set(ref(db, 'users/' + user.user.uid), {
                                 username: user.user.displayName,
