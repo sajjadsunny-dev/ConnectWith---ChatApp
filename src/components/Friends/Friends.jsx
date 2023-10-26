@@ -3,7 +3,7 @@ import { HiDotsVertical } from 'react-icons/hi';
 const Friends = () => {
    return (
       <>
-         <div className=" w-[32%] h-[355px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
+         <div className="hidden md:block w-[32%] h-[355px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
             <div className='flex justify-between mb-5'>
                <h3 className='font-poppins text-xl font-semibold'>Friends</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>

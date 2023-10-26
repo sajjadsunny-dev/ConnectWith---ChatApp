@@ -67,18 +67,20 @@ const Home = () => {
                   />
                </div>
             ) : verify ? (
-               <section className="h-screen px-5 py-5 grid grid-cols-9 gap-10">
-                  <div className="h-full col-span-1">
+               <section className="h-screen pt-12 p-2.5 md:p-5 md:grid grid-cols-9 gap-10">
+                  <div className="md:h-full col-span-1 fixed md:static w-full left-0 bottom-0">
                      <Sidebar />
                   </div>
 
-                  <div className="w-full col-span-8 flex flex-col">
+                  <div className="w-full h-full md:col-span-8 flex flex-col">
 
-                     <div className="flex justify-between h-[50%] w-full">
+                     <div className="md:flex justify-between h-full md:h-[50%] w-full">
                         {/* Group List */}
-                        <div className=" w-[32%] h-[355px] flex flex-col justify-between">
-                           <SearchBox />
-                           <GroupList />
+                        <div className="w-full md:w-[32%] h-full md:h-[355px]">
+                           <div className="h-full flex flex-col justify-between">
+                              <SearchBox />
+                              <GroupList />
+                           </div>
                         </div>
 
                         {/* Friends */}
@@ -88,7 +90,7 @@ const Home = () => {
                         <UserList />
                      </div>
 
-                     <div className="flex justify-between items-end h-[50%] w-full">
+                     <div className="hidden md:flex justify-between items-end h-[50%] w-full">
                         {/* Friend Request */}
                         <FriendRequest />
 
