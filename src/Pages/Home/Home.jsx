@@ -72,34 +72,30 @@ const Home = () => {
                      <Sidebar />
                   </div>
 
-                  <div className="w-full h-full md:col-span-8 flex flex-col">
+                  <div className="w-full h-full md:col-span-8 flex flex-wrap justify-between content-between">
 
-                     <div className="md:flex justify-between h-full md:h-[50%] w-full">
-                        {/* Group List */}
-                        <div className="w-full md:w-[32%] h-full md:h-[355px]">
-                           <div className="h-full flex flex-col justify-between">
-                              <SearchBox />
-                              <GroupList />
-                           </div>
+                     {/* Group List */}
+                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
+                        <div className="h-full flex flex-col justify-between">
+                           <SearchBox />
+                           <GroupList />
                         </div>
-
-                        {/* Friends */}
-                        <Friends />
-
-                        {/* User List */}
-                        <UserList />
                      </div>
 
-                     <div className="hidden md:flex justify-between items-end h-[50%] w-full">
-                        {/* Friend Request */}
-                        <FriendRequest />
+                     {/* Friends */}
+                     <Friends />
 
-                        {/* My Groups */}
-                        <MyGroups />
+                     {/* User List */}
+                     <UserList />
 
-                        {/* Blocked Users */}
-                        <BlockList />
-                     </div>
+                     {/* Friend Request */}
+                     <FriendRequest />
+
+                     {/* My Groups */}
+                     <MyGroups />
+
+                     {/* Blocked Users */}
+                     <BlockList />
                   </div>
                </section>
             )

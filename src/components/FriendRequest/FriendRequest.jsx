@@ -3,7 +3,7 @@ import { HiDotsVertical } from 'react-icons/hi';
 const FriendRequest = () => {
    return (
       <>
-         <div className="w-[32%] h-[355px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
+         <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
             <div className='flex justify-between mb-2'>
                <h3 className='font-poppins text-xl font-semibold'>Friend Request</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>
