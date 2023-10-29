@@ -98,7 +98,7 @@ const Sidebar = () => {
                }</h2>
             </div>
             <ul className='w-full md:mb-12 flex md:block justify-between px-2 md:px-0'>
-               <li className="hidden md:block h-12 relative mb-12 text-3xl md:text-4xl xl:5xl text-themeColor cursor-pointer before:content-[''] before:h-[70px] before:xl:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[70px] after:xl:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
+               <li className="hidden md:block h-12 relative mb-12 text-3xl md:text-4xl xl:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[70px] before:xl:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[70px] after:xl:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear' />
                </li>
                <li className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 md:hidden relative md:mb-12 text-3xl md:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80%] before:w-full before:bg-white before:absolute before:bottom-0 before:right-0 before:rounded-t-lg before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-2.5 after:w-full after:bg-themeColor after:absolute after:bottom-0 after:right-0 after:rounded-t-lg after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow">
@@ -117,7 +117,7 @@ const Sidebar = () => {
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li> */}
             </ul>
-            <div className="text-3xl md:text-4xl xl:5xl text-white drop-shadow-navIconDropShadow cursor-pointer hidden md:block">
+            <div className="text-3xl md:text-4xl xl:text-5xl text-white drop-shadow-navIconDropShadow cursor-pointer hidden md:block">
                <ImExit onClick={handleLogOut} />
             </div>
             {uploadDP &&

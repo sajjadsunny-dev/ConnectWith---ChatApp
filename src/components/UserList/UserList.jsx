@@ -18,7 +18,7 @@ const UserList = () => {
          setUserData(arr)
          setLoading(false)
       });
-   }, [])
+   }, [db])
    return (
       <>
          <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
@@ -43,7 +43,9 @@ const UserList = () => {
                            colors={["#5F35F5", "#5F35F5", "#5F35F5", "#5F35F5", "#5F35F5"]}
                         />
                      </div> :
+
                      userData.map((items) => (
+                        // eslint-disable-next-line react/jsx-key
                         <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                            <div className="flex items-center">
                               <div className="mr-3.5">
