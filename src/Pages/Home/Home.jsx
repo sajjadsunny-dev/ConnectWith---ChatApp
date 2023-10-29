@@ -24,9 +24,8 @@ const Home = () => {
 
    useEffect(() => {
       if (!data) {
-         setTimeout(() => {
-            navigate('/sign-in')
-         }, 500);
+         navigate('/sign-in');
+         setLoading(false);
       } else {
          onAuthStateChanged(auth, (user) => {
             if (user.emailVerified) {
@@ -41,7 +40,7 @@ const Home = () => {
             }
          });
       }
-   })
+   }, [auth, data, dispatch, navigate]);
 
    const handleLogOut = () => {
       signOut(auth).then(() => {
