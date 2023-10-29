@@ -54,7 +54,7 @@ const UserList = () => {
                                  <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:56pm</h5>
                               </div>
                            </div>
-                           <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white'>
+                           <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-0 md:mr-10'>
                               <FaPlus className='' />
                            </div>
                         </li>

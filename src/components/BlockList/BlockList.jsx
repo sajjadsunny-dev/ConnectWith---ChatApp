@@ -22,8 +22,8 @@ const BlockList = () => {
                         <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:56pm</h5>
                      </div>
                   </div>
-                  <div className="mr-9">
-                     <button className='font-poppins text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                  <div className="mr-0 md:mr-6">
+                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 
@@ -37,8 +37,8 @@ const BlockList = () => {
                         <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 2:31pm</h5>
                      </div>
                   </div>
-                  <div className="mr-9">
-                     <button className='font-poppins text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                  <div className="mr-0 md:mr-6">
+                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 
@@ -52,8 +52,8 @@ const BlockList = () => {
                         <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Yesterday, 6:22pm</h5>
                      </div>
                   </div>
-                  <div className="mr-9">
-                     <button className='font-poppins text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                  <div className="mr-0 md:mr-6">
+                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 
@@ -67,8 +67,8 @@ const BlockList = () => {
                         <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 12:22pm</h5>
                      </div>
                   </div>
-                  <div className="mr-9">
-                     <button className='font-poppins text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                  <div className="mr-0 md:mr-6">
+                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 
@@ -82,8 +82,8 @@ const BlockList = () => {
                         <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:52pm</h5>
                      </div>
                   </div>
-                  <div className="mr-9">
-                     <button className='font-poppins text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                  <div className="mr-0 md:mr-6">
+                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 
