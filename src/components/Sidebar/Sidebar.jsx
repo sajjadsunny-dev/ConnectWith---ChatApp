@@ -97,20 +97,20 @@ const Sidebar = () => {
                <h2 className="px-3 font-poppins text-base text-white font-semibold text-center mt-3">{data.displayName
                }</h2>
             </div>
-            <ul className='w-full md:mb-12 flex md:block justify-between'>
+            <ul className='w-full md:mb-12 flex md:block justify-between px-2'>
                <li className="hidden md:block h-12 relative mb-12 text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear' />
                </li>
-               <li className="w-full mx-3.5 md:mx-0 h-[85px] md:h-12 md:hidden relative md:mb-12 text-4xl md:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80%] before:w-full before:bg-white before:absolute before:bottom-0 before:right-0 before:rounded-t-lg before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-2.5 after:w-full after:bg-themeColor after:absolute after:bottom-0 after:right-0 after:rounded-t-lg after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow">
+               <li className="w-full mx-3.5 md:mx-0 h-[75px] md:h-12 md:hidden relative md:mb-12 text-3xl md:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80%] before:w-full before:bg-white before:absolute before:bottom-0 before:right-0 before:rounded-t-lg before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-2.5 after:w-full after:bg-themeColor after:absolute after:bottom-0 after:right-0 after:rounded-t-lg after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] transition-all duration-300 ease-linear' />
                </li>
-               <li className="w-full mx-3.5 md:mx-0 h-[85px] md:h-12 relative md:mb-12 text-4xl md:text-5xl text-[#BAD1FF] cursor-pointer">
+               <li className="w-full mx-3.5 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-5xl text-[#BAD1FF] cursor-pointer">
                   <PiChatCircleDotsFill className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
-               <li className="w-full mx-3.5 md:mx-0 h-[85px] md:h-12 relative md:mb-12 text-4xl md:text-[60px] text-[#BAD1FF] cursor-pointer">
+               <li className="w-full mx-3.5 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-[60px] text-[#BAD1FF] cursor-pointer">
                   <AiOutlineBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
-               <li className="w-full mx-3.5 md:mx-0 h-[85px] md:h-12 relative text-4xl md:text-5xl text-[#BAD1FF] cursor-pointer">
+               <li className="w-full mx-3.5 md:mx-0 h-[75px] md:h-12 relative text-3xl md:text-5xl text-[#BAD1FF] cursor-pointer">
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li>
                {/* <li className="h-12 relative text-5xl text-[#BAD1FF] cursor-pointer before:content-[''] before:h-[80px] before:w-0 before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[80px] after:w-0 after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:before:w-[84%] hover:after:w-[8px] hover:text-themeColor">

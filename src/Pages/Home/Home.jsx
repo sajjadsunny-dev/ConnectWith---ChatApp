@@ -68,16 +68,16 @@ const Home = () => {
                   />
                </div>
             ) : verify ? (
-               <section className="h-screen pt-20 p-2.5 md:p-5 md:grid grid-cols-9 gap-10">
-
-                  <div className="fixed top-0 left-0 z-[100] w-full md:hidden">
+               <section className="h-screen pt-16 p-2.5 md:p-5 md:grid grid-cols-9 gap-10">
+                  <HamburgerMenu />
+                  {/* <div className="fixed top-0 left-0 z-[100] w-full md:hidden">
                      <div className="p-3 bg-white flex justify-center relative">
                         <div className="absolute top-1/2 left-[12px] translate-y-[-50%]">
                            <HamburgerMenu />
                         </div>
-                        <h2 className="font-pacifico text-3xl text-themeColor">ConnectWith</h2>
+                        <h2 className="font-pacifico text-3xl text-themeColor select-none">ConnectWith</h2>
                      </div>
-                  </div>
+                  </div> */}
 
                   <div className="md:h-full col-span-1 fixed md:static w-full left-0 bottom-0 z-[70]">
                      <Sidebar />
