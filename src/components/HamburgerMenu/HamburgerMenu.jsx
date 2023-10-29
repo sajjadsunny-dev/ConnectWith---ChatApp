@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const HamburgerMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
-   const [menuVisible, setMenuVisible] = useState(false);
+   const [shadowVisible, setShadowVisible] = useState(false);
   // const menuRef = useRef(null)
   const HambarMenu = () => {
     console.log("working");
@@ -14,12 +14,12 @@ const HamburgerMenu = () => {
     if (showMenu) {
       // Set menuVisible to true after a delay
       const timer = setTimeout(() => {
-        setMenuVisible(true);
+        setShadowVisible(true);
       }, 200);
 
       return () => clearTimeout(timer);
     } else {
-      setMenuVisible(false);
+      setShadowVisible(false);
     }
   }, [showMenu]);
 
@@ -49,7 +49,7 @@ const HamburgerMenu = () => {
             showMenu ? ` left-0 ` : `-left-full`
           }`}
         >
-          <div className={`w-full h-full fixed top-0 ${menuVisible?`bg-black/20 duration-300`:``}`}>
+          <div className={`w-full h-full fixed top-0 ${shadowVisible?`bg-black/20 duration-200`:``}`}>
             <div className={`w-3/4 sm:w-3/5 h-full bg-white`}>
               <div
                 onClick={HambarMenu}
