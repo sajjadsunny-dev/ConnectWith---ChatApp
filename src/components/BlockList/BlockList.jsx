@@ -23,67 +23,7 @@ const BlockList = () => {
                      </div>
                   </div>
                   <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
-                  </div>
-               </li>
-
-               <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
-                  <div className="flex items-center">
-                     <div className="mr-3.5">
-                        <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse3.png" alt="Ellipse3.png" />
-                     </div>
-                     <div className=''>
-                        <h5 className='font-poppins text-sm font-semibold'>Swathi</h5>
-                        <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 2:31pm</h5>
-                     </div>
-                  </div>
-                  <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
-                  </div>
-               </li>
-
-               <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
-                  <div className="flex items-center">
-                     <div className="mr-3.5">
-                        <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse4.png" alt="Ellipse4.png" />
-                     </div>
-                     <div className=''>
-                        <h5 className='font-poppins text-sm font-semibold'>Kiran</h5>
-                        <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Yesterday, 6:22pm</h5>
-                     </div>
-                  </div>
-                  <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
-                  </div>
-               </li>
-
-               <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
-                  <div className="flex items-center">
-                     <div className="mr-3.5">
-                        <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse5.png" alt="Ellipse5.png" />
-                     </div>
-                     <div className=''>
-                        <h5 className='font-poppins text-sm font-semibold'>Tejeshwini C</h5>
-                        <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 12:22pm</h5>
-                     </div>
-                  </div>
-                  <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
-                  </div>
-               </li>
-
-               <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
-                  <div className="flex items-center">
-                     <div className="mr-3.5">
-                        <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse1.png" alt="Ellipse1.png" />
-                     </div>
-                     <div className=''>
-                        <h5 className='font-poppins text-sm font-semibold'>Marvin McKinney</h5>
-                        <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:52pm</h5>
-                     </div>
-                  </div>
-                  <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 

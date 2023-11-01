@@ -20,7 +20,7 @@ const GroupList = () => {
                      </div>
                   </div>
                   <div className="">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-3.5 md:px-[22px] py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-3.5 md:px-4.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
                   </div>
                </li>
                <li className='py-3 md:pr-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -32,7 +32,7 @@ const GroupList = () => {
                      </div>
                   </div>
                   <div className="">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-3.5 md:px-[22px] py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-3.5 md:px-4.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
                   </div>
                </li>
                <li className='py-3 md:pr-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
@@ -44,7 +44,7 @@ const GroupList = () => {
                      </div>
                   </div>
                   <div className="">
-                     <button className='font-poppins text-sm md:text-xl font-semibold text-white px-3.5 md:px-[22px] py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-3.5 md:px-4.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Join</button>
                   </div>
                </li>
             </ul>

@@ -94,7 +94,7 @@ const Sidebar = () => {
                   <BiSolidCloudUpload className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] duration-200 z-10" />
                   <img className="w-full h-full" src={data?.photoURL} alt="" />
                </div>
-               <h2 className="xl:px-3 font-poppins text-xs xl:text-base text-white font-semibold text-center mt-3">{data.displayName
+               <h2 className="xl:px-3 font-poppins text-xs xl:text-base text-white font-semibold text-center mt-3 capitalize">{data.displayName
                }</h2>
             </div>
             <ul className='w-full md:mb-12 flex md:block justify-between px-2 md:px-0'>

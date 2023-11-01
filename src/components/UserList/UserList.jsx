@@ -1,24 +1,53 @@
 import { HiDotsVertical } from 'react-icons/hi';
-import { FaPlus } from 'react-icons/fa';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useEffect, useState } from 'react';
 import { ColorRing } from "react-loader-spinner";
+import { useSelector } from 'react-redux';
+// import { userLoginInfo } from '../../slices/userSlice';
 
 const UserList = () => {
    const [loading, setLoading] = useState(true);
    const db = getDatabase();
-   const [userData, setUserData] = useState([])
+   const [userData, setUserData] = useState([]);
+   const [friendRequestData, setFriendRequestData] = useState([]);
+   const data = useSelector(state => state.userLoginInfo.userInfo);
+
    useEffect(() => {
       const userRef = ref(db, 'users/')
       onValue(userRef, (snapshot) => {
          const arr = []
          snapshot.forEach((item) => {
-            arr.push(item.val());
+            if (data.uid != item.key) {
+               arr.push({ ...item.val(), userid: item.key });
+            }
          })
          setUserData(arr)
          setLoading(false)
       });
    }, [db])
+
+   const addFriend = (item) => {
+      // console.log(item);
+      set(push(ref(db, 'friendRequest/')), {
+         sendername: data.displayName,
+         senderid: data.uid,
+         receivername: item.username,
+         receiverid: item.userid
+      });
+   }
+
+   useEffect(() => {
+      const friendrequest = ref(db, 'friendRequest/');
+      onValue(friendrequest, (snapshot) => {
+         let arr = []
+         snapshot.forEach((item) => {
+            arr.push(item.val().receiverid + item.val().senderid);
+         })
+         setFriendRequestData(arr)
+      });
+   }, [db])
+
+
    return (
       <>
          <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
@@ -44,21 +73,29 @@ const UserList = () => {
                         />
                      </div> :
 
-                     userData.map((items) => (
+                     userData.map((item) => (
                         // eslint-disable-next-line react/jsx-key
                         <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                            <div className="flex items-center">
                               <div className="mr-3.5">
                                  <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse2.png" alt="Ellipse2.png" />
                               </div>
-                              <div className=''>
-                                 <h5 className='font-poppins text-sm font-semibold'>{items.username}</h5>
+                              <div className='w-[120px] md:w-auto'>
+                                 <h5 className='font-poppins text-sm font-semibold'>{item.username}</h5>
                                  <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:56pm</h5>
                               </div>
                            </div>
-                           <div className='inline-block p-1.5 bg-themeColor rounded-[5px] text-base text-white cursor-pointer border-[1px] border-solid border-themeColor duration-300 hover:text-themeColor hover:bg-white mr-0 md:mr-10'>
-                              <FaPlus className='' />
-                           </div>
+                           {
+                              friendRequestData.includes(item.userid + data.uid) || friendRequestData.includes(data.uid + item.userid)
+                                 ?
+                                 <div className="">
+                                    <button className='font-poppins text-sm md:text-base font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Cancel</button>
+                                 </div>
+                                 :
+                                 <div className="">
+                                    <button onClick={() => addFriend(item)} className='font-poppins text-sm md:text-base font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Add Friend</button>
+                                 </div>
+                           }
                         </li>
                      ))
 
