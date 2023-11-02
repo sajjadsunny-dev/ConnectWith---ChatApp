@@ -12,7 +12,6 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import SearchBox from './../../components/SearchBox/SearchBox';
 import { userLoginInfo } from '../../slices/userSlice';
 import { ColorRing } from "react-loader-spinner";
-import HamburgerMenu from '../../components/HamburgerMenu/HamburgerMenu';
 
 const Home = () => {
    const navigate = useNavigate()
@@ -68,11 +67,13 @@ const Home = () => {
                </div>
             ) : verify ? (
                <section className="h-screen pt-16 p-2.5 md:p-3 xl:p-5 md:grid grid-cols-9 gap-10 lg:landscape:gap-5 xl:landscape:gap-10">
-                  <HamburgerMenu />
 
-                  <div className="md:h-full col-span-1 fixed md:static w-full left-0 bottom-0 z-[70]">
+                  <div className="col-span-1">
                      <Sidebar />
                   </div>
+                  {/* <div className="md:h-full col-span-1 fixed md:static w-full left-0 bottom-0 z-[70]">
+                     <Sidebar />
+                  </div> */}
 
                   <div className="w-full h-full md:col-span-8 flex flex-wrap justify-between content-between">
 
