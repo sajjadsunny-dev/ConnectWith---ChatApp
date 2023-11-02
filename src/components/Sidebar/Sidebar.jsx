@@ -141,7 +141,7 @@ const Sidebar = () => {
 
          {
             uploadDP &&
-            <div className="w-screen h-screen bg-errorBg absolute top-0 left-0 z-50">
+            <div className="w-screen h-screen bg-errorBg fixed top-0 left-0 z-[110]">
                <div className={`py-5 md:py-8 px-4 md:px-6 w-10/12 md:w-[500px] bg-white rounded-xl shadow-uploadImg absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-50 }`}>
                   <h2 className="font-poppins text-2xl md:text-[35px] font-semibold mb-2">Upload Profile Photo</h2>
 

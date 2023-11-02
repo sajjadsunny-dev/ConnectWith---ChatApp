@@ -24,7 +24,7 @@ const UserList = () => {
          setUserData(arr)
          setLoading(false)
       });
-   }, [db])
+   }, [db, data])
 
    const addFriend = (item) => {
       // console.log(item);
