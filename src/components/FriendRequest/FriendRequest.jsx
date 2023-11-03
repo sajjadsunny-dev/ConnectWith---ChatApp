@@ -13,13 +13,13 @@ const FriendRequest = () => {
       onValue(friendrequestRef, (snapshot) => {
          let arr = []
          snapshot.forEach((item) => {
-            if (item.val().receiverid !== data.uid) {
+            if (item.val().receiverid == data.uid) {
                arr.push({ ...item.val(), id: item.key });
             }
          })
          setFriendRequestList(arr)
       });
-   }, [])
+   }, [data.uid,db])
    console.log('myarrrr', friendRequestList);
    return (
       <>
@@ -33,9 +33,9 @@ const FriendRequest = () => {
 
             <ul className='eraseBorder h-[88%] overflow-y-auto'>
                {
-                  friendRequestList.map((item) => {
+                  friendRequestList.map((item,i) => (
 
-                     <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
+                     <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                         <div className="flex items-center">
                            <div className="mr-2 md:mr-3.5">
                               <img className='w-[60px] md:w-[70px] h-[60px] md:h-[70px] rounded-full object-cover' src="images/friends/Ellipse2.png" alt="Ellipse2.png" />
@@ -49,7 +49,7 @@ const FriendRequest = () => {
                            <button className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Accept</button>
                         </div>
                      </li>
-                  })
+                  ))
                }
 
                {/* <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
