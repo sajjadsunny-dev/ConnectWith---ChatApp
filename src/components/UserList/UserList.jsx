@@ -73,9 +73,9 @@ const UserList = () => {
                         />
                      </div> :
 
-                     userData.map((item) => (
+                     userData.map((item,i) => (
                         // eslint-disable-next-line react/jsx-key
-                        <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
+                        <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                            <div className="flex items-center">
                               <div className="mr-3.5">
                                  <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse2.png" alt="Ellipse2.png" />
