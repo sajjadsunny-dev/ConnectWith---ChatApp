@@ -50,7 +50,7 @@ const UserList = () => {
 
    return (
       <>
-         <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
+         <div className="w-full h-full pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
             <div className='flex justify-between mb-5'>
                <h3 className='font-poppins text-xl font-semibold'>User List</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>
@@ -73,7 +73,7 @@ const UserList = () => {
                         />
                      </div> :
 
-                     userData.map((item,i) => (
+                     userData.map((item, i) => (
                         // eslint-disable-next-line react/jsx-key
                         <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                            <div className="flex items-center">

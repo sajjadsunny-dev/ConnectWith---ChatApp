@@ -14,11 +14,16 @@ import Home from './Pages/Home/Home'
 import Error404 from './Pages/Error404/Error404'
 import { store } from './store'
 import { Provider } from 'react-redux'
+import Messages from './Pages/Messages/Messages'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "/messages",
+    element: <Messages />
   },
   {
     path: "/sign-up",

@@ -1,6 +1,6 @@
 import { HiDotsVertical } from 'react-icons/hi';
 
-const Friends = () => {
+const ChatFriends = () => {
    return (
       <>
          <div className="w-full h-full pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
@@ -65,4 +65,4 @@ const Friends = () => {
    )
 }
 
-export default Friends
+export default ChatFriends

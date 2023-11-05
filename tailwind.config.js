@@ -46,9 +46,25 @@ export default {
       },
       borderRadius: {
         'custom': '20px',
+        '10px': '10px',
       },
       dropShadow: {
         'navIconDropShadow': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      gridTemplateRows: {
+        '8': 'repeat(8, minmax(0, 1fr))',
+        '7': 'repeat(7, minmax(0, 1fr))',
+        '12': 'repeat(12, minmax(0, 1fr))',
+        '13': 'repeat(13, minmax(0, 1fr))',
+      },
+      gridRow: {
+        'span-8': 'span 8 / span 8',
+        'span-9': 'span 9 / span 9',
+      },
+      borderWidth: {
+        '20': '20px',
+        '22': '22px',
+        '28': '28px',
       }
     },
   },
