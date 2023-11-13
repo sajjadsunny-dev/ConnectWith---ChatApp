@@ -6,6 +6,7 @@ const Chat = () => {
    return (
       <>
          <div className="w-full h-full rounded-custom shadow-homeCardShadow pl-12 pr-7 grid grid-rows-13">
+            {/* receiver identity */}
             <div className="row-span-2 flex items-center justify-between border-b-[1px] border-solid border-[#00000040]">
                <div className="flex items-center">
                   <div className=" inline-block relative mr-3.5 after:content-[''] after:h-[17px] after:w-[17px] after:bg-[#00FF75] after:absolute after:bottom-0.5 after:right-0.5 after:rounded-full after:border-solid after:border-white after:border-2 after:drop-shadow-navIconDropShadow">
@@ -20,6 +21,7 @@ const Chat = () => {
                   <HiDotsVertical />
                </div>
             </div>
+            {/* box for read messages */}
             <div className="row-span-9 py-4">
                <div className="sunnyy h-[480px] min-h-full max-h-full overflow-y-auto">
                   <div className="mt-8">
@@ -44,6 +46,7 @@ const Chat = () => {
                   </div>
                </div>
             </div>
+            {/* message input and send button */}
             <div className="row-span-2 flex items-center border-t-[1px] border-solid border-[#00000040]">
                <form action="" className="flex w-full">
                   <div className="relative w-full">

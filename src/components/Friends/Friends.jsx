@@ -21,7 +21,9 @@ const Friends = () => {
                         <p className='font-poppins text-xs font-medium text-[#4D4D4DBF] mt-0.5'>Hi Guys, Wassup!</p>
                      </div>
                   </div>
-                  <h5 className="font-poppins text-[10px] font-medium text-[#00000080]">Today, 8:56pm</h5>
+                  <div className="">
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-2.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Block</button>
+                  </div>
                </li>
                <li className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                   <div className="flex items-center">
