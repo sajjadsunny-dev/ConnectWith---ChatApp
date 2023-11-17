@@ -20,7 +20,6 @@ const FriendRequest = () => {
          setFriendRequestList(arr)
       });
    }, [data.uid, db])
-   console.log('myarrrr', friendRequestList);
    return (
       <>
          <div className="w-full h-full pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
@@ -38,7 +37,7 @@ const FriendRequest = () => {
                      <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                         <div className="flex items-center">
                            <div className="mr-2 md:mr-3.5">
-                              <img className='w-[60px] md:w-[70px] h-[60px] md:h-[70px] rounded-full object-cover' src="images/friends/Ellipse2.png" alt="Ellipse2.png" />
+                              <img className='w-[60px] md:w-[70px] h-[60px] md:h-[70px] rounded-full object-cover' src={item.profile_picture} alt="Ellipse2.png" />
                            </div>
                            <div className=''>
                               <h5 className='font-poppins text-base md:text-lg font-semibold'>{item.sendername}</h5>

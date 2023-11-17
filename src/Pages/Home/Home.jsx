@@ -28,9 +28,7 @@ const Home = () => {
       } else {
          onAuthStateChanged(auth, (user) => {
             if (user.emailVerified) {
-               setTimeout(() => {
-                  setLoading(false)
-               }, 500);
+               setLoading(false)
                setVerify(true)
                dispatch(userLoginInfo(user));
                localStorage.setItem('userLoginInfo', JSON.stringify((user)))

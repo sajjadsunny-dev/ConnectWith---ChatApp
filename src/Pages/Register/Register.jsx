@@ -92,6 +92,8 @@ const Register = () => {
                             set(ref(db, 'users/' + user.user.uid), {
                                 username: user.user.displayName,
                                 email: user.user.email,
+                                userid: user.user.uid,
+                                profile_picture: user.user.photoURL,
                             });
                         })
                         .catch((error) => {

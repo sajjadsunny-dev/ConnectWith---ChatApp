@@ -3,7 +3,7 @@ import { AiOutlineHome, AiOutlineBell } from 'react-icons/ai';
 import { PiChatCircleDotsFill } from 'react-icons/pi';
 import { SlSettings } from 'react-icons/sl';
 import { getAuth, signOut, updateProfile } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoginInfo } from '../../slices/userSlice';
 import { BiSolidCloudUpload } from 'react-icons/bi';
@@ -20,10 +20,13 @@ import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
 import { getStorage, ref, uploadString, getDownloadURL } from "firebase/storage";
+import { getDatabase, ref as Ref, set } from "firebase/database";
 
 const Sidebar = () => {
    const auth = getAuth();
    const storage = getStorage();
+
+   const db = getDatabase();
 
    const navigate = useNavigate()
    const dispatch = useDispatch()
@@ -87,10 +90,17 @@ const Sidebar = () => {
                updateProfile(auth.currentUser, {
                   photoURL: downloadURL
                }).then(() => {
-                  setUploadDP(false)
-                  setLoading(false)
-                  setImage('')
+                  set(Ref(db, 'users/' + data.uid), {
+                     username: data.displayName,
+                     email: data.email,
+                     profile_picture: data.photoURL,
+                  });
                })
+                  .then(() => {
+                     setUploadDP(false)
+                     setLoading(false)
+                     setImage('')
+                  })
             });
          });
       }
@@ -115,21 +125,25 @@ const Sidebar = () => {
                }</h2>
             </div>
             <ul className='w-full md:mb-12 flex md:block justify-between px-2 md:px-0'>
-               <li className="hidden md:block h-12 relative mb-12 text-3xl md:text-4xl xl:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[70px] before:xl:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[70px] after:xl:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
+               <NavLink to={'/'} className="hidden md:block h-12 relative mb-12 text-3xl md:text-4xl xl:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[70px] before:xl:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[70px] after:xl:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear' />
-               </li>
-               <li className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 md:hidden relative md:mb-12 text-3xl md:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80%] before:w-full before:bg-white before:absolute before:bottom-0 before:right-0 before:rounded-t-lg before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-2.5 after:w-full after:bg-themeColor after:absolute after:bottom-0 after:right-0 after:rounded-t-lg after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow">
+               </NavLink>
+
+               <NavLink to={'/'} className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 md:hidden relative md:mb-12 text-3xl md:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[80%] before:w-full before:bg-white before:absolute before:bottom-0 before:right-0 before:rounded-t-lg before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-2.5 after:w-full after:bg-themeColor after:absolute after:bottom-0 after:right-0 after:rounded-t-lg after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow">
                   <AiOutlineHome className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] transition-all duration-300 ease-linear' />
-               </li>
-               <li className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
+               </NavLink>
+
+               <NavLink to={'/messages'} className="inline-block w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
                   <PiChatCircleDotsFill className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
-               </li>
-               <li className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-[60px] text-[#BAD1FF] cursor-pointer">
+               </NavLink>
+
+               <NavLink className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-[60px] text-[#BAD1FF] cursor-pointer">
                   <AiOutlineBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
-               </li>
-               <li className="w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
+               </NavLink>
+
+               <NavLink className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
-               </li>
+               </NavLink>
                {/* <li className="h-12 relative text-5xl text-[#BAD1FF] cursor-pointer before:content-[''] before:h-[80px] before:w-0 before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[80px] after:w-0 after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:before:w-[84%] hover:after:w-[8px] hover:text-themeColor">
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </li> */}

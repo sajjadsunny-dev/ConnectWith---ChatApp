@@ -22,7 +22,7 @@ const Chat = () => {
                </div>
             </div>
             {/* box for read messages */}
-            <div className="row-span-9 py-4">
+            <div className="row-span-9 pt-1.5 pb-2.5">
                <div className="sunnyy h-[480px] min-h-full max-h-full overflow-y-auto">
                   <div className="mt-8">
                      <h4 className="message inline-block max-w-[85%] py-[13px] px-[27px] rounded-e-10px rounded-t-10px bg-[#F1F1F1] font-poppins text-base font-medium tracking-wide ml-6 relative before:content-[''] before:absolute before:left-0 before:bottom-0 before:-translate-x-1/2 before:rounded-[5px] before:border-solid before:border-t-22 before:border-r-22 before:border-b-20 before:border-l-28 before:border-t-transparent before:border-r-transparent before:border-b-[#F1F1F1] before:border-l-transparent">Hello...</h4>

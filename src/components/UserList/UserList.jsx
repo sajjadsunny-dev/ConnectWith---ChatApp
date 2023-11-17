@@ -3,7 +3,6 @@ import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useEffect, useState } from 'react';
 import { ColorRing } from "react-loader-spinner";
 import { useSelector } from 'react-redux';
-// import { userLoginInfo } from '../../slices/userSlice';
 
 const UserList = () => {
    const [loading, setLoading] = useState(true);
@@ -27,12 +26,12 @@ const UserList = () => {
    }, [db, data])
 
    const addFriend = (item) => {
-      // console.log(item);
       set(push(ref(db, 'friendRequest/')), {
          sendername: data.displayName,
          senderid: data.uid,
          receivername: item.username,
-         receiverid: item.userid
+         receiverid: item.userid,
+         profile_picture: data.photoURL,
       });
    }
 
@@ -78,7 +77,7 @@ const UserList = () => {
                         <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                            <div className="flex items-center">
                               <div className="mr-3.5">
-                                 <img className='w-[54px] h-[54px] rounded-full object-cover' src="images/friends/Ellipse2.png" alt="Ellipse2.png" />
+                                 <img className='w-[54px] h-[54px] bg-slate-100 rounded-full object-cover' src={item.profile_picture} alt="" />
                               </div>
                               <div className='w-[120px] md:w-auto'>
                                  <h5 className='font-poppins text-sm font-semibold'>{item.username}</h5>
