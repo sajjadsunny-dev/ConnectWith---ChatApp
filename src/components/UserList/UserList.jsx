@@ -9,6 +9,7 @@ const UserList = () => {
    const db = getDatabase();
    const [userData, setUserData] = useState([]);
    const [friendRequestData, setFriendRequestData] = useState([]);
+   const [isFriend, setIsFriend] = useState([]);
    const data = useSelector(state => state.userLoginInfo.userInfo);
 
    useEffect(() => {
@@ -46,6 +47,16 @@ const UserList = () => {
       });
    }, [db])
 
+   useEffect(() => {
+      const friendList = ref(db, 'friends/');
+      onValue(friendList, (snapshot) => {
+         let arr = []
+         snapshot.forEach((item) => {
+            arr.push(item.val().receiverid + item.val().senderid);
+         })
+         setIsFriend(arr)
+      });
+   }, [db])
 
    return (
       <>
@@ -84,16 +95,24 @@ const UserList = () => {
                                  <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:56pm</h5>
                               </div>
                            </div>
+
                            {
-                              friendRequestData.includes(item.userid + data.uid) || friendRequestData.includes(data.uid + item.userid)
+                              isFriend.includes(item.userid + data.uid) || isFriend.includes(data.uid + item.userid)
                                  ?
                                  <div className="">
-                                    <button className='font-poppins text-sm md:text-base font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Cancel</button>
+                                    <button className='font-poppins text-sm md:text-base font-semibold text-white px-2.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Friend</button>
                                  </div>
                                  :
-                                 <div className="">
-                                    <button onClick={() => addFriend(item)} className='font-poppins text-sm md:text-base font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Add Friend</button>
-                                 </div>
+                                 friendRequestData.includes(item.userid + data.uid) || friendRequestData.includes(data.uid + item.userid)
+                                    ?
+                                    <div className="">
+                                       <button className='font-poppins text-sm md:text-base font-semibold text-white px-2.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Cancel</button>
+                                    </div>
+                                    :
+                                    <div className="">
+                                       <button onClick={() => addFriend(item)} className='font-poppins text-sm md:text-base font-semibold text-white px-2.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Add Friend</button>
+                                    </div>
+
                            }
                         </li>
                      ))

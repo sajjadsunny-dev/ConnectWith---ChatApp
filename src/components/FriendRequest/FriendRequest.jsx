@@ -1,5 +1,5 @@
 import { HiDotsVertical } from 'react-icons/hi';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set, push, remove } from "firebase/database";
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -20,6 +20,13 @@ const FriendRequest = () => {
          setFriendRequestList(arr)
       });
    }, [data.uid, db])
+   const acceptFriend = (item) => {
+      set(push(ref(db, 'friends/')), {
+         ...item
+      }).then(() => {
+         remove(ref(db, 'friendRequest/' + item.id))
+      })
+   }
    return (
       <>
          <div className="w-full h-full pt-5 pb-3 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
@@ -45,7 +52,7 @@ const FriendRequest = () => {
                            </div>
                         </div>
                         <div className="mr-0 xl:mr-9">
-                           <button className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Accept</button>
+                           <button onClick={() => acceptFriend(item)} className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Accept</button>
                         </div>
                      </li>
                   ))
