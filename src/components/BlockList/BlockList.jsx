@@ -23,7 +23,7 @@ const BlockList = () => {
                      </div>
                   </div>
                   <div className="mr-0 md:mr-6">
-                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
+                     <button className='font-poppins text-sm md:text-lg font-semibold text-white px-2.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Unblock</button>
                   </div>
                </li>
 

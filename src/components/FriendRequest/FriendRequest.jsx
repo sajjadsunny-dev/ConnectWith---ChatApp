@@ -20,6 +20,7 @@ const FriendRequest = () => {
          setFriendRequestList(arr)
       });
    }, [data.uid, db])
+
    const acceptFriend = (item) => {
       set(push(ref(db, 'friends/')), {
          ...item
@@ -51,7 +52,7 @@ const FriendRequest = () => {
                               <p className='font-poppins text-xs md:text-base font-medium text-[#4D4D4DBF] mt-0.5'>Dinner?</p>
                            </div>
                         </div>
-                        <div className="mr-0 xl:mr-9">
+                        <div className="">
                            <button onClick={() => acceptFriend(item)} className='font-poppins text-sm md:text-lg font-semibold text-white px-1.5 py-0.5 bg-themeColor rounded-md border-[1px] border-solid border-themeColor hover:bg-white hover:text-themeColor duration-300'>Accept</button>
                         </div>
                      </li>
