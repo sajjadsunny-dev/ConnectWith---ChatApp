@@ -32,7 +32,8 @@ const UserList = () => {
          senderid: data.uid,
          receivername: item.username,
          receiverid: item.userid,
-         profile_picture: data.photoURL,
+         sender_dp: data.photoURL,
+         receiver_dp: item.profile_picture,
       });
    }
 

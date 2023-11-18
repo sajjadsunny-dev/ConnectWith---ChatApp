@@ -21,7 +21,7 @@ const Friends = () => {
          setMyFriend(arr)
       });
    }, [db, data])
-   console.log('myFriend', myFriend);
+   // console.log('myFriend', myFriend);
 
    return (
       <>
@@ -38,7 +38,7 @@ const Friends = () => {
                      <li key={i} className='py-3 flex justify-between items-center border-b-[1px] border-solid border-[#00000040]'>
                         <div className="flex items-center">
                            <div className="relative mr-3.5 after:content-[''] after:h-[15px] after:w-[15px] after:bg-[#00FF75] after:absolute after:bottom-0 after:right-0 after:rounded-full after:border-solid after:border-white after:border-2 after:drop-shadow-navIconDropShadow">
-                              <img className='w-[54px] h-[54px] rounded-full object-cover' src={item.profile_picture} alt="" />
+                              <img className='w-[54px] h-[54px] rounded-full object-cover' src={data.uid == item.senderid ? item.receiver_dp : item.sender_dp} alt="" />
                            </div>
                            <div className=''>
                               <h5 className='font-poppins text-sm font-semibold'>
