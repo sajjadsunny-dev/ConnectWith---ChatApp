@@ -137,11 +137,11 @@ const Sidebar = () => {
                   <PiChatCircleDotsFill className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </NavLink>
 
-               <NavLink className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-[60px] text-[#BAD1FF] cursor-pointer">
+               <NavLink to={'/notification'} className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative md:mb-12 text-3xl md:text-4xl xl:text-[60px] text-[#BAD1FF] cursor-pointer">
                   <AiOutlineBell className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </NavLink>
 
-               <NavLink className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
+               <NavLink to={'/settings'} className="inline-block  w-full mx-3.5 sm:landscape:mx-12 md:landscape:mx-0 md:mx-0 h-[75px] md:h-12 relative text-3xl md:text-4xl xl:text-5xl text-[#BAD1FF] cursor-pointer">
                   <SlSettings className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-40%] md:translate-y-[-50%] transition-all duration-300 ease-linear drop-shadow-navIconDropShadow' />
                </NavLink>
             </ul>

@@ -15,6 +15,8 @@ import Error404 from './Pages/Error404/Error404'
 import { store } from './store'
 import { Provider } from 'react-redux'
 import Messages from './Pages/Messages/Messages'
+import Notification from './Pages/Notification/Notification';
+import Settings from './Pages/Settings/Settings';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: "/messages",
     element: <Messages />
+  },
+  {
+    path: "/notification",
+    element: <Notification />
+  },
+  {
+    path: "/settings",
+    element: <Settings />
   },
   {
     path: "/sign-up",

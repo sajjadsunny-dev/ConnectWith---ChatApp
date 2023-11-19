@@ -92,7 +92,7 @@ const UserList = () => {
                                  <img className='w-[54px] h-[54px] bg-slate-100 rounded-full object-cover' src={item.profile_picture} alt="" />
                               </div>
                               <div className='w-[120px] md:w-auto'>
-                                 <h5 className='font-poppins text-sm font-semibold'>{item.username}</h5>
+                                 <h5 className='font-poppins text-sm font-semibold capitalize'>{item.username}</h5>
                                  <h5 className="font-poppins text-[10px] font-medium text-[#00000080] mt-1">Today, 8:56pm</h5>
                               </div>
                            </div>

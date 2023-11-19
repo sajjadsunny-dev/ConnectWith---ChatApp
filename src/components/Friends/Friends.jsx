@@ -7,7 +7,6 @@ const Friends = () => {
    const db = getDatabase();
    const data = useSelector(state => state.userLoginInfo.userInfo);
    const [myFriend, setMyFriend] = useState([]);
-   // console.log('Friend data', data);
 
    useEffect(() => {
       const friendRef = ref(db, 'friends/');
@@ -21,7 +20,6 @@ const Friends = () => {
          setMyFriend(arr)
       });
    }, [db, data])
-   // console.log('myFriend', myFriend);
 
    return (
       <>
