@@ -1,5 +1,4 @@
 import Sidebar from './../../components/Sidebar/Sidebar';
-import GroupList from './../../components/GroupList/GroupList';
 import Friends from './../../components/Friends/Friends';
 import UserList from './../../components/UserList/UserList';
 import FriendRequest from './../../components/FriendRequest/FriendRequest';
@@ -9,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import SearchBox from './../../components/SearchBox/SearchBox';
 import { userLoginInfo } from '../../slices/userSlice';
 import { ColorRing } from "react-loader-spinner";
+import SearchGroup from '../../components/SearchGroup/SearchGroup';
 
 const Home = () => {
    const navigate = useNavigate()
@@ -20,6 +19,20 @@ const Home = () => {
    const [verify, setVerify] = useState(false);
    const [loading, setLoading] = useState(true);
    const auth = getAuth();
+   const [activeChildIndex, setActiveChildIndex] = useState(0);
+
+   const handleClick = (index) => {
+      setActiveChildIndex(index);
+   };
+
+   const components = [
+      <SearchGroup />,
+      <Friends />,
+      <UserList />,
+      <FriendRequest />,
+      <MyGroups />,
+      <BlockList />
+   ];
 
    useEffect(() => {
       if (!data) {
@@ -74,30 +87,12 @@ const Home = () => {
                   </div> */}
 
                   <div className="w-full h-full md:col-span-8 flex flex-wrap justify-between content-between">
-
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
-                        <div className="h-full flex flex-col justify-between">
-                           <SearchBox />
-                           <GroupList />
-                        </div>
-                     </div>
-
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
-                        <Friends />
-                     </div>
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
-                        <UserList />
-                     </div>
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
-                        <FriendRequest />
-                     </div>
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px]">
-                        <MyGroups />
-                     </div>
-                     <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] ">
-                        <BlockList />
-                     </div>
-
+                     <SearchGroup />
+                     <Friends />
+                     <UserList />
+                     <FriendRequest />
+                     <MyGroups />
+                     <BlockList />
                   </div>
                </section>
             )

@@ -26,7 +26,7 @@ const MyGroups = () => {
 
    return (
       <>
-         <div className="w-full h-full pt-5 pb-1.5 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
+         <div className="w-full md:w-[32%] h-full md:h-[290px] lg:h-[305px] 2xl:h-[360px] pt-5 pb-1.5 pl-5 pr-[22px] rounded-custom shadow-homeCardShadow">
             <div className='flex justify-between mb-2'>
                <h3 className='font-poppins text-xl font-semibold'>My Groups</h3>
                <div className='text-2xl cursor-pointer text-themeColor'>
