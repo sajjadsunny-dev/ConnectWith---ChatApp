@@ -113,30 +113,18 @@ const Sidebar = (props) => {
       setShowMenu(false)
    }
    const { handleOne, handleTwo, handleThree, handleFour, handleFive, handleSix } = props;
-   const custFunctionA = () => {
-      HambarMenuClose()
-      handleOne()
-   }
-   const custFunctionB = () => {
-      HambarMenuClose()
-      handleTwo()
-   }
-   const custFunctionC = () => {
-      HambarMenuClose()
-      handleThree()
-   }
-   const custFunctionD = () => {
-      HambarMenuClose()
-      handleFour()
-   }
-   const custFunctionE = () => {
-      HambarMenuClose()
-      handleFive()
-   }
-   const custFunctionF = () => {
-      HambarMenuClose()
-      handleSix()
-   }
+
+   const customFunction = (handleFunction) => {
+      HambarMenuClose();
+      handleFunction();
+   };
+
+   const custFunctionA = () => customFunction(handleOne);
+   const custFunctionB = () => customFunction(handleTwo);
+   const custFunctionC = () => customFunction(handleThree);
+   const custFunctionD = () => customFunction(handleFour);
+   const custFunctionE = () => customFunction(handleFive);
+   const custFunctionF = () => customFunction(handleSix);
 
    return (
       <>
