@@ -121,8 +121,7 @@ const Sidebar = () => {
                   <BiSolidCloudUpload className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] duration-200 z-10" />
                   <img className="w-full h-full" src={data?.photoURL} alt="" />
                </div>
-               <h2 className="xl:px-3 font-poppins text-xs xl:text-base text-white font-semibold text-center mt-3 capitalize">{data.displayName
-               }</h2>
+               <h2 className="xl:px-3 font-poppins text-xs xl:text-base text-white font-semibold text-center mt-3 capitalize">{data.displayName}</h2>
             </div>
             <ul className='w-full md:mb-12 flex md:block justify-between px-2 md:px-0'>
                <NavLink to={'/'} className="hidden md:block h-12 relative mb-12 text-3xl md:text-4xl xl:text-5xl text-themeColor cursor-pointer before:content-[''] before:h-[70px] before:xl:h-[80px] before:w-[84%] before:bg-white before:absolute before:top-[50%] before:right-0 before:translate-y-[-50%] before:rounded-l-custom before:transition-all before:duration-300 before:ease-linear after:content-[''] after:h-[70px] after:xl:h-[80px] after:w-[8px] after:bg-themeColor after:absolute after:top-[50%] after:right-0 after:translate-y-[-50%] after:rounded-l-custom after:transition-all after:duration-300 after:ease-linear after:shadow-navAfterShadow hover:text-themeColor">
