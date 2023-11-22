@@ -80,19 +80,33 @@ const Home = () => {
                <section className="h-screen pt-16 p-2.5 md:p-3 xl:p-5 md:grid grid-cols-9 gap-10 lg:landscape:gap-5 xl:landscape:gap-10">
 
                   <div className="col-span-1">
-                     <Sidebar />
+                     <Sidebar
+                        handleOne={() => handleClick(0)}
+                        handleTwo={() => handleClick(1)}
+                        handleThree={() => handleClick(2)}
+                        handleFour={() => handleClick(3)}
+                        handleFive={() => handleClick(4)}
+                        handleSix={() => handleClick(5)}
+                     />
                   </div>
                   {/* <div className="md:h-full col-span-1 fixed md:static w-full left-0 bottom-0 z-[70]">
                      <Sidebar />
                   </div> */}
 
-                  <div className="w-full h-full md:col-span-8 flex flex-wrap justify-between content-between">
+                  <div className="w-full h-full md:col-span-8 hidden md:flex flex-wrap justify-between content-between">
                      <SearchGroup />
                      <Friends />
                      <UserList />
                      <FriendRequest />
                      <MyGroups />
                      <BlockList />
+                  </div>
+                  <div className="h-full md:hidden">
+                     {components.map((component, index) => (
+                        activeChildIndex === index && (
+                           <div className='h-full' key={index}>{component}</div>
+                        )
+                     ))}
                   </div>
                </section>
             )

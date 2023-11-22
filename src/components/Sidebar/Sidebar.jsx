@@ -22,7 +22,7 @@ import "cropperjs/dist/cropper.css";
 import { getStorage, ref, uploadString, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as Ref, set } from "firebase/database";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
    const auth = getAuth();
    const storage = getStorage();
 
@@ -111,6 +111,31 @@ const Sidebar = () => {
    }
    const HambarMenuClose = () => {
       setShowMenu(false)
+   }
+   const { handleOne, handleTwo, handleThree, handleFour, handleFive, handleSix } = props;
+   const custFunctionA = () => {
+      HambarMenuClose()
+      handleOne()
+   }
+   const custFunctionB = () => {
+      HambarMenuClose()
+      handleTwo()
+   }
+   const custFunctionC = () => {
+      HambarMenuClose()
+      handleThree()
+   }
+   const custFunctionD = () => {
+      HambarMenuClose()
+      handleFour()
+   }
+   const custFunctionE = () => {
+      HambarMenuClose()
+      handleFive()
+   }
+   const custFunctionF = () => {
+      HambarMenuClose()
+      handleSix()
    }
 
    return (
@@ -231,53 +256,58 @@ const Sidebar = () => {
                </div>
             </div>
 
-            <div className={`w-4/5 sm:w-3/5 h-full fixed top-0 left-0 z-[90] bg-white transition-all ease-linear ${showMenu ? "translate-x-0 duration-300 " : "translate-x-[-100%] duration-300 "} `}>
-               <div className="flex items-center justify-between p-2.5 pt-5 sm:p-1.5">
-                  <div className="flex items-center">
-                     <div onClick={profileDpUpload} className="w-[55px] h-[55px] rounded-full overflow-hidden cursor-pointer mr-2.5" >
-                        <img className="w-full h-full" src={data?.photoURL} alt="images/profilePhoto.png" />
+            <div className={`w-4/5 sm:w-3/5 h-full fixed top-0 left-0 z-[90] bg-white transition-all ease-linear ${showMenu ? "translate-x-0 duration-300 " : "translate-x-[-100%] duration-300 "} flex flex-col justify-between pb-6`}>
+               <div className="sunny">
+                  <div className="flex items-center justify-between p-2.5 pt-5 sm:p-1.5">
+                     <div className="flex items-center">
+                        <div onClick={profileDpUpload} className="w-[55px] h-[55px] rounded-full overflow-hidden cursor-pointer mr-2.5" >
+                           <img className="w-full h-full" src={data?.photoURL} alt="images/profilePhoto.png" />
+                        </div>
+                        <h2 className="font-poppins text-lg text-themeColor font-semibold capitalize">{data.displayName}</h2>
                      </div>
-                     <h2 className="font-poppins text-lg text-themeColor font-semibold capitalize">{data.displayName}</h2>
                   </div>
+                  <ul className="px-3 mt-6 sm:mt-2">
+                     <li onClick={custFunctionA} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <BiGroup />
+                        </div>
+                        Group List
+                     </li>
+                     <li onClick={custFunctionB} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <GiThreeFriends />
+                        </div>
+                        Friends
+                     </li>
+                     <li onClick={custFunctionC} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <PiUserListBold />
+                        </div>
+                        User List
+                     </li>
+                     <li onClick={custFunctionD} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <AiOutlineUsergroupAdd />
+                        </div>
+                        FriendRequest
+                     </li>
+                     <li onClick={custFunctionE} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <BiGroup />
+                        </div>
+                        My Groups
+                     </li>
+                     <li onClick={custFunctionF} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer">
+                        <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
+                           <MdOutlineBlock />
+                        </div>
+                        Block List
+                     </li>
+                  </ul>
                </div>
-               <ul className="px-3 mt-6 sm:mt-2">
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <BiGroup />
-                     </div>
-                     Group List
-                  </li>
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <GiThreeFriends />
-                     </div>
-                     Friens
-                  </li>
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <PiUserListBold />
-                     </div>
-                     User List
-                  </li>
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <AiOutlineUsergroupAdd />
-                     </div>
-                     FriendRequest
-                  </li>
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer mb-3 sm:mb-1.5">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <BiGroup />
-                     </div>
-                     My Groups
-                  </li>
-                  <li onClick={HambarMenuClose} className="font-poppins font-medium tracking-wider text-base px-3 py-2.5 sm:p-1 rounded-[8px] bg-[#5F35F51A] flex items-center select-none cursor-pointer">
-                     <div className="text-3xl sm:text-2xl text-themeColor mr-3 p-1 bg-white rounded-[8px]">
-                        <MdOutlineBlock />
-                     </div>
-                     Block List
-                  </li>
-               </ul>
+               <div className="pl-6 text-4xl text-themeColor drop-shadow-navIconDropShadow cursor-pointer">
+                  <ImExit onClick={handleLogOut} />
+               </div>
             </div>
             <div onClick={HambarMenuClose} className={`w-full h-full bg-errorBg fixed top-0 left-0 z-[80] ${showMenu ? "scale-1" : "scale-0"}`}></div>
 
