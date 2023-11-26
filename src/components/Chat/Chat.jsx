@@ -7,14 +7,20 @@ import { useState } from 'react';
 import { getDatabase, ref, set, push } from "firebase/database";
 
 const Chat = () => {
-   const activeChat = useSelector(state => state.activeChatSlice.active);
    const db = getDatabase();
+   const activeChat = useSelector(state => state.activeChatSlice.active);
+   const data = useSelector(state => state.userLoginInfo.userInfo);
    const [message, setMessage] = useState('');
 
    const sendYourMsg = () => {
       if (activeChat.status == 'single') {
-         set(push(ref(db, 'activeChat/')), {
+         set(push(ref(db, 'userMessage/')), {
             message: message,
+            msgSenderId: data.uid,
+            msgSenderName: data.displayName,
+            msgReceiverId: activeChat.id,
+            msgReceiverName: activeChat.name,
+            date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}, ${new Date().getHours()}-${new Date().getMinutes()}`
          });
          setMessage('')
       } else {
