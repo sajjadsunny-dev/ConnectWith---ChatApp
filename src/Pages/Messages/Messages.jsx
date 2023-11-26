@@ -4,7 +4,6 @@ import Groups from "../../components/Groups/Groups"
 import SearchBox from "../../components/SearchBox/SearchBox"
 import Sidebar from "../../components/Sidebar/Sidebar"
 
-
 const Messages = () => {
    return (
       <>
